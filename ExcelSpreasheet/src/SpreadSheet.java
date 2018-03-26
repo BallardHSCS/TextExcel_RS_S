@@ -6,13 +6,10 @@ public class SpreadSheet {
     public SpreadSheet(){
     }
 
-    public void printEmptySpreadsheet(){
+
+    public String print(){
 
 
+        return "";
     }
-
-
-    public
-
-
 }
