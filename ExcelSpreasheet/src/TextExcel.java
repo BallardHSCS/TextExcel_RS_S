@@ -23,11 +23,11 @@ public class TextExcel {
             }
 
             else if(user_input.equalsIgnoreCase("print")){
-                sheet.print();
+                System.out.println(sheet.print());
             }
 
             else if(user_input.equalsIgnoreCase("clear")){
-
+                System.out.println(sheet.clear());
             }
         }
         while (!done);
