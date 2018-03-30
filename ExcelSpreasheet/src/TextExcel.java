@@ -27,7 +27,7 @@ public class TextExcel {
             }
 
             else if(user_input.equalsIgnoreCase("clear")){
-                System.out.println(sheet.clear());
+                System.out.println();
             }
         }
         while (!done);

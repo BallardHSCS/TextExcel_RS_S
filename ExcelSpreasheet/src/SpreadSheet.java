@@ -16,29 +16,36 @@ public class SpreadSheet extends TextExcel {
         }
     }
 
-    public static void main(String args[]) {
 
-
-
-
-
-    }
-
-    /*public String SpreadSheetPrint() {
+    public String SpreadSheetPrint() {
         System.out.println( "            |     A      |     B      |     C      |     D      |     E      |     F      |     G      |");
-        for (int i = 0; i <= SHEET_HEIGHT / 2; i++) {
-         if (i % 0 != 0) {
-             System.out.println("------------+------------+------------+------------+------------+------------+------------+------------+");
-         }
-         if (i % 0 == 0) {
-             System.out.println("     "+ i +"      |");
-             System.out.println("|            |            |            |            |            |            |            |"); }*/
-     }
+        System.out.println("------------+------------+------------+------------+------------+------------+------------+------------+");
+        for (int i = 0; i <= SHEET_HEIGHT*2 ; i++) {
+            if (i % 2 != 0) {
+                System.out.println("------------+------------+------------+------------+------------+------------+------------+------------+");
+            }
+            if (i % 2 == 0) {
+                if(i>=18){
+                    System.out.print("     " + ((i+2)/2) + "     ");
+                    System.out.println("|            |            |            |            |            |            |            |");
+                }
+                else{
+                    System.out.print("     " + ((i+2)/2) + "      ");
+                    System.out.println("|            |            |            |            |            |            |            |");
+
+                }
+            }
+
+            if(i>=18){
+                System.out.println("------------+------------+------------+------------+------------+------------+------------+------------+");
+            }
+        }
+    return "";}
 
 
 
  public String print() {
-     String sheetPrint = "            |     A      |     B      |     C      |     D      |     E      |     F      |     G      |\n" +
+     String sheetPrint ="            |     A      |     B      |     C      |     D      |     E      |     F      |     G      |\n" +
              "------------+------------+------------+------------+------------+------------+------------+------------+\n" +
              "     1      |            |            |            |            |            |            |            |\n" +
              "------------+------------+------------+------------+------------+------------+------------+------------+\n" +

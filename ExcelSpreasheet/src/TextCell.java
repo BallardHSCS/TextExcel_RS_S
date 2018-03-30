@@ -4,9 +4,5 @@
 * It stores cell data as strings.
 * */
 
-public class TextCell extends Cell {
-    public Cell TextCell (String EMPTY_CELL){
+public class TextCell extends Cell {}
 
-    }
-
-}
