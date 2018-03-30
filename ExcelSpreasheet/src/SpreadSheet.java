@@ -1,4 +1,4 @@
-public class SpreadSheet {
+public class SpreadSheet extends TextExcel {
     public static final int SHEET_HEIGHT = 10;
     public static final int SHEET_WIDTH = 7;
 
