@@ -21,5 +21,8 @@ public static final String EMPTY_CELL = "";
 
 
 
-    public void emptyCell(){}
+    public void emptyCell(int RowPos, int ColPos,String Contents ){
+
+
+    }
 }
