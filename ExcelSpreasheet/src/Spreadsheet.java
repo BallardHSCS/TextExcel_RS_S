@@ -1,10 +1,10 @@
-public class SpreadSheet extends TextExcel {
+public class Spreadsheet extends TextExcel {
     public static final int SHEET_HEIGHT = 10;
     public static final int SHEET_WIDTH = 7;
 
     Cell[][] cellArray = new Cell[SHEET_WIDTH][SHEET_HEIGHT];
 
-    public SpreadSheet() {
+    public Spreadsheet() {
         for (int wPos = 0; wPos <= SHEET_WIDTH; wPos++) {
 
 
