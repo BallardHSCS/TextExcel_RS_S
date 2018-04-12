@@ -6,7 +6,7 @@ The rest of the Cell classes are extended from this class, and inherit its prope
 
 */
 
-public class Cell extends SpreadSheet {
+public class Cell {
 
 public static final String EMPTY_CELL = "";
 
