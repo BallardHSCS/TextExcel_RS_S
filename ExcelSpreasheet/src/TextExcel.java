@@ -1,5 +1,5 @@
 
-        import java.util.Scanner;
+import java.util.Scanner;
 
 public class TextExcel {
     public static void main(String[] args) {
@@ -21,13 +21,9 @@ public class TextExcel {
             //Titled 'quit' within the specification
             if (user_input.equalsIgnoreCase("exit")) {
                 done = true;
-            }
-
-            else if(user_input.equalsIgnoreCase("print")){
+            } else if (user_input.equalsIgnoreCase("print")) {
                 System.out.println(sheet.print());
-            }
-
-            else if(user_input.equalsIgnoreCase("clear")){
+            } else if (user_input.equalsIgnoreCase("clear")) {
                 System.out.println();
             }
         }

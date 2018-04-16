@@ -5,29 +5,24 @@ The rest of the Cell classes are extended from this class, and inherit its prope
 
 
 */
+
 import java.util.Scanner;
+
 public class Cell {
 
 
+    public static final String EMPTY_CELL = "";
 
-public static final String EMPTY_CELL = "";
 
-
-    public Cell(){
+    public Cell() {
         String Contents = EMPTY_CELL;
-
-
-
 
 
     }
 
 
-
-     public void emptyCell(int RowPos, int ColPos){
-
+    public void emptyCell(int RowPos, int ColPos) {
 
 
-
-}
+    }
 }
