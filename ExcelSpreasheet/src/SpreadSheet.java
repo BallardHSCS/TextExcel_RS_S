@@ -2,17 +2,25 @@ public class SpreadSheet extends TextExcel {
     public static final int SHEET_HEIGHT = 10;
     public static final int SHEET_WIDTH = 7;
 
-    Cell[][] cellArray = new Cell[SHEET_WIDTH][SHEET_HEIGHT];
+    private Cell[][] cellArray;
 
     public SpreadSheet() {
+        String Front = "|      ";
+        String Back = "      |";
+        String SpreadSheetPrint = "";
+        cellArray = new Cell[SHEET_WIDTH][SHEET_HEIGHT];
+        SpreadSheetPrint+= "            |     A      |     B      |     C      |     D      |     E      |     F      |     G      |\n";
         for (int wPos = 0; wPos <= SHEET_WIDTH; wPos++) {
 
 
             for (int hPos = 0; hPos <= SHEET_HEIGHT; hPos++) {
+
                 cellArray[wPos][hPos] = new Cell();
+                SpreadSheetPrint;
 
 
             }
+            SpreadSheetPrint+="------------+------------+------------+------------+------------+------------+------------+------------+\n";
         }
     }
 
