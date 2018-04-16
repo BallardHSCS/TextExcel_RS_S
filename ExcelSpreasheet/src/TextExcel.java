@@ -6,7 +6,7 @@ public class TextExcel {
         Scanner command_input = new Scanner(System.in);
         boolean done = false;
 
-        Spreadsheet sheet = new Spreadsheet();
+        SpreadSheet sheet = new SpreadSheet();
         System.out.println("");
         System.out.println("");
         System.out.println("");
