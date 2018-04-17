@@ -4,5 +4,8 @@
 * It stores cell data as strings.
 * */
 
-//public class TextCell extends Cell {}
+public class TextCell extends Cell {
+
+
+}
 

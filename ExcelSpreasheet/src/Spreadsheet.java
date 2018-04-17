@@ -11,6 +11,8 @@ public class SpreadSheet {
             for (int cPos = 0; cPos <= SHEET_WIDTH; cPos++) {
 
                 cellArray[rPos][cPos] = new Cell();
+
+
             }
         }
     }
@@ -48,9 +50,16 @@ public class SpreadSheet {
         String nextRow = "------------+------------+------------+------------+------------+------------+------------+------------+\n";
         sheetPrint += "            |     A      |     B      |     C      |     D      |     E      |     F      |     G      |\n" + nextRow;
         for (int rPos = 0; rPos < SHEET_HEIGHT; rPos++) {
-            sheetPrint += "     " + rPos + "     ";
-            for (int cPos = 1; cPos < SHEET_WIDTH; cPos++) {
-                sheetPrint += "|            |";
+            if(rPos>=9){
+                sheetPrint += "     " + (rPos + 1) + "     |";
+            }
+            else{
+                sheetPrint += "     " + (rPos + 1) + "      |";
+            }
+            for (int cPos = 0; cPos < SHEET_WIDTH; cPos++) {
+
+                sheetPrint += "            |";
+                cellArray[rPos][cPos].equals("            ");
 
             }
             sheetPrint += "\n";
@@ -59,6 +68,10 @@ public class SpreadSheet {
 
 
         return sheetPrint;
+    }
+    public String print(){
+        return "";
+
     }
 
     public void createCell() {

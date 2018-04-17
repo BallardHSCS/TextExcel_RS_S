@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class Cell {
 
 
-    public static final String EMPTY_CELL = "";
+    public static final String EMPTY_CELL = "            ";
 
 
     public Cell() {
