@@ -4,9 +4,21 @@
 * Depending on situation, it will store the Cell data as a double, or an int.
 * */
 
-/*public class NumberCell extends Cell {
-    public void NumCell(){
+public class NumberCell extends Cell {
+
+    public NumberCell(){
+
+
 
     }
+
+
+    public double doubleCell(String contents){
+
+
+
+
+        return 6.0;
+    }
+
 }
-*/
