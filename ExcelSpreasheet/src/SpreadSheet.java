@@ -5,12 +5,15 @@ public class SpreadSheet {
     private Cell[][] cellArray;
 
     public SpreadSheet() {
-        cellArray = new Cell[SHEET_WIDTH][SHEET_HEIGHT];
-        for (int rPos = 0; rPos <= SHEET_HEIGHT; rPos++) {
+        cellArray = new Cell[SHEET_HEIGHT][SHEET_WIDTH];
+        for (int rPos = 0; rPos < SHEET_HEIGHT; rPos++) {
 
-            for (int cPos = 0; cPos <= SHEET_WIDTH; cPos++) {
+            for (int cPos = 0; cPos < SHEET_WIDTH; cPos++) {
+
+
 
                 cellArray[rPos][cPos] = new Cell();
+                cellArray[rPos][cPos].equals( "           |");
 
 
             }
@@ -70,6 +73,9 @@ public class SpreadSheet {
         return sheetPrint;
     }
     public String print(){
+
+
+
         return "";
 
     }
