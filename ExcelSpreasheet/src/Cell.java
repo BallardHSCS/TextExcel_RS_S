@@ -13,10 +13,15 @@ public class Cell {
 
     public static final String EMPTY_CELL = "            ";
 
+    private String contents;
+
 
     public Cell() {
-        String Contents = EMPTY_CELL;
+         contents = EMPTY_CELL;
 
+
+    }
+    public Cell(String data){
 
     }
 
