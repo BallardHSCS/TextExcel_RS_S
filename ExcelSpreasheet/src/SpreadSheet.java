@@ -76,10 +76,18 @@ public class SpreadSheet {
 
 
 
+        return "";}
+
+        public String clear(){
+
+            for(int let = 0; let < SHEET_HEIGHT; let++){
+                for(int num = 0; num < SHEET_WIDTH; num++){
+                    cellArray[let][num].equals(Cell.EMPTY_CELL);
+
+            }
+        }
+
+
         return "";
-
-    }
-
-    public void createCell() {
     }
 }

@@ -26,8 +26,7 @@ public class Cell {
     }
 
 
-    public void emptyCell(int RowPos, int ColPos) {
 
 
-    }
 }
+
