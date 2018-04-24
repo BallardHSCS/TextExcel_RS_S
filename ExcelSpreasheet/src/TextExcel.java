@@ -17,14 +17,16 @@ public class TextExcel {
             System.out.println("Please enter a command, proper documentation will arrive later near completion");
 
             String user_input = command_input.nextLine();
-
+            SpreadSheet functionObj = new SpreadSheet();
             //Titled 'quit' within the specification
             if (user_input.equalsIgnoreCase("exit")) {
                 done = true;
             } else if (user_input.equalsIgnoreCase("print")) {
-                System.out.println(sheet.toString());
+                SpreadSheet.print();
             } else if (user_input.equalsIgnoreCase("clear")) {
-                System.out.println();
+                SpreadSheet.clear();
+            } else if (user_input.equalsIgnoreCase("")) {
+
             }
         }
         while (!done);
