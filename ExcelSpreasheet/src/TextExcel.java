@@ -25,16 +25,9 @@ public class TextExcel {
             } else if (user_input.equalsIgnoreCase("clear")) {
                 sheet.clear();
             } else if (user_input.contains(" = ")) {
-                String [] user_input_parts =  user_input.split(" ");
-                String cellName = user_input_parts[0];
-                String data = user_input_parts[2];
-                char letter = cellName.charAt(0);
-                int number =Integer.parseInt(cellName.substring(1));
+               sheet.setCell(user_input);
 
-    }
-        while (!done);
+            }
+        } while (!done);
         command_input.close();
-
-
-}}
-
+    }}

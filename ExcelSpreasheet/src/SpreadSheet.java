@@ -2,6 +2,7 @@
 public class SpreadSheet {
     public static final int SHEET_HEIGHT = 10;
     public static final int SHEET_WIDTH = 7;
+    private int letterA = 'A';
 
     private Cell[][] cellArray;
 
@@ -61,7 +62,22 @@ public class SpreadSheet {
      * for the main method to use when exchanging data with the Cell class
      * @param input
      */
-}   public  setCell(String input){
+   public void setCell(String input){
+       String[] user_input_parts = input.split(" ");
+       String cellName = user_input_parts[0];
+       String data = user_input_parts[2];
+       char letter = cellName.charAt(0);
+       int number = Integer.parseInt(cellName.substring(1));
+       int thisChar = letter - letterA;
+        for(int row = 0; row<){}
+
+}
+
+
+
+
+
+
 
 
 }
