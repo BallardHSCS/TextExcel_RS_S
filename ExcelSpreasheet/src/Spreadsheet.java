@@ -1,3 +1,4 @@
+
 public class SpreadSheet {
     public static final int SHEET_HEIGHT = 10;
     public static final int SHEET_WIDTH = 7;
@@ -31,8 +32,8 @@ public class SpreadSheet {
             }
             for (int cPos = 0; cPos < SHEET_WIDTH; cPos++) {
 
-                sheetPrint += "            |";
-                cellArray[rPos][cPos].equals("            ");
+                sheetPrint += cellArray[rPos][cPos].printToSpreadsheet();
+                sheetPrint+="|";
 
             }
             sheetPrint += "\n";
@@ -43,16 +44,6 @@ public class SpreadSheet {
         return sheetPrint;
     }
 
-    public static String print() {
-        for (int let = 0; let < SHEET_HEIGHT; let++) {
-            for (int num = 0; num < SHEET_WIDTH; num++) {
-                this.cellArray[let][num]
-            }
-        }
-
-
-        return "";
-    }
 
     public void clear() {
 
@@ -65,4 +56,12 @@ public class SpreadSheet {
 
 
     }
+    /**
+     * Takes input from TextExcel and returns cell locations
+     * for the main method to use when exchanging data with the Cell class
+     * @param input
+     */
+}   public  setCell(String input){
+
+
 }
