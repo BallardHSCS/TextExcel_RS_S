@@ -6,7 +6,8 @@
 * */
 
 
-/*public class FormulaCell extends Cell {
-    public void formulaCell() {}
+public class FormulaCell extends Cell {
+    public void formulaCell() {
+
+    }
 }
-*/
