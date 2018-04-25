@@ -27,7 +27,7 @@ public class Cell {
      *@param data it the fraction from the constructor
      * **/
     public Cell(String data){
-
+        contents = data;
     }
 
 

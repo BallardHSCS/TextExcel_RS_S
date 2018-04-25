@@ -67,9 +67,9 @@ public class SpreadSheet {
        String cellName = user_input_parts[0];
        String data = user_input_parts[2];
        char letter = cellName.charAt(0);
-       int number = Integer.parseInt(cellName.substring(1));
-       int thisChar = letter - letterA;
-        for(int row = 0; row<){}
+       int row = Integer.parseInt(cellName.substring(1));
+       int col = letter - letterA;
+        cellArray[row][col].
 
 }
 
