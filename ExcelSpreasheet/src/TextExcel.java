@@ -24,7 +24,9 @@ public class TextExcel {
                 System.out.println(sheet);
             } else if (user_input.equalsIgnoreCase("clear")) {
                 sheet.clear();
-            } else if (user_input.contains(" = ")) {
+            }
+            //TODO: Error Check certain cases below, for example if contents conatin' = ' within a string input
+            else if (user_input.contains(" = ")) {
                sheet.setCell(user_input);
 
             }

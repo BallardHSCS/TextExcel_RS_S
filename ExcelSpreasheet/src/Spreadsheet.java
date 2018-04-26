@@ -50,7 +50,7 @@ public class SpreadSheet {
 
         for (int let = 0; let < SHEET_HEIGHT; let++) {
             for (int num = 0; num < SHEET_WIDTH; num++) {
-                cellArray[let][num].equals(Cell.EMPTY_CELL);
+                cellArray[let][num].;
 
             }
         }

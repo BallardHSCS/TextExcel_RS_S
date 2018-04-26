@@ -34,6 +34,12 @@ public class Cell {
     public String printToSpreadsheet(){
         return contents;
     }
+    public String formatCell(){
+        String format = "";
 
+
+        return format;
+    }
 }
+
 
