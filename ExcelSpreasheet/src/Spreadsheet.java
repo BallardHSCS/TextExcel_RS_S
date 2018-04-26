@@ -34,7 +34,7 @@ public class SpreadSheet {
             for (int cPos = 0; cPos < SHEET_WIDTH; cPos++) {
 
                 sheetPrint += cellArray[rPos][cPos].printToSpreadsheet();
-                sheetPrint+="|";
+                sheetPrint += "|";
 
             }
             sheetPrint += "\n";
@@ -57,21 +57,39 @@ public class SpreadSheet {
 
 
     }
+
     /**
      * Takes input from TextExcel and returns cell locations
      * for the main method to use when exchanging data with the Cell class
+     *
      * @param input
      */
-   public void setCell(String input){
-       String[] user_input_parts = input.split(" ");
-       String cellName = user_input_parts[0];
-       String data = user_input_parts[2];
-       char letter = cellName.charAt(0);
-       int row = Integer.parseInt(cellName.substring(1));
-       int col = letter - letterA;
+    public void setCell(String input) {
+        String[] user_input_parts = input.split(" ");
+        String cellName = user_input_parts[0];
+        String data = user_input_parts[2];
+        char letter = cellName.charAt(0);
+        int row = Integer.parseInt(cellName.substring(1));
+        int col = letter - letterA;
         cellArray[row][col].
+        if (data.contains("(")) {
 
-}
+
+        }
+        else if (data.contains("\"")) {
+
+
+        }
+        else{
+
+
+        }
+
+
+
+
+   }
+
 
 
 
