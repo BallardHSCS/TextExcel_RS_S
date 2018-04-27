@@ -53,9 +53,9 @@ public class Spreadsheet {
             String data = user_input_parts[2];
             char letter = cellName.charAt(0);
             letter = Character.toUpperCase(letter);
-            int row = Integer.parseInt(cellName.substring(1));
+            int row = Integer.parseInt(cellName.substring(1))-1;
             int col = letter - letterA;
-            cellArray[row][col] = new Cell(data);
+            cellArray[row][col] = new Cell();
         }
         else {
             for (int let = 0; let < SHEET_HEIGHT; let++) {
