@@ -28,6 +28,13 @@ public class TextExcel {
             //TODO: Error Check certain cases below, for example if contents contain' = ' within a string input
             else if (user_input.contains(" = ")) {
                sheet.setCell(user_input);
+                if (user_input.contains("(")) {
+
+
+                } else if (user_input.contains("\"")) {
+
+
+                } else {
 
             }
         } while (!done);
