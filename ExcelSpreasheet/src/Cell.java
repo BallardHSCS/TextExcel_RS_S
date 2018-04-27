@@ -32,15 +32,20 @@ public class Cell {
 
 
     public String printToSpreadsheet(){
-        return contents;
+        return formatCell(contents);
     }
 
 
-    public String formatCell(){
-        String format = "";
+    public String formatCell(String input){
+        int format = EMPTY_CELL.length();
+        int formatdif = format - input.length();
+        for(int i = 0; i< formatdif; i++ ){
+            input += " ";
 
+        }
+        String formatted = input;
 
-        return format;
+        return formatted;
     }
 }
 

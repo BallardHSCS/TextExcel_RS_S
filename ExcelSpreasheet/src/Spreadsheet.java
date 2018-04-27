@@ -78,7 +78,8 @@ public class Spreadsheet {
         String cellName = user_input_parts[0];
         String data = user_input_parts[2];
         char letter = cellName.charAt(0);
-        int row = Integer.parseInt(cellName.substring(1));
+        letter = Character.toUpperCase(letter);
+        int row = Integer.parseInt(cellName.substring(1)) -1;
         int col = letter - letterA;
         cellArray[row][col] = new Cell(data);
         if (data.contains("(")) {
