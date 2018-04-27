@@ -37,6 +37,6 @@ public class TextExcel {
                 } else {
 
             }
-        } while (!done);
-        command_input.close();
-    }}
+        }
+    }while (!done);
+        command_input.close();}}
