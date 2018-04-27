@@ -7,7 +7,11 @@
 
 
 public class FormulaCell extends Cell {
-    public void formulaCell() {
 
+
+    /*TODO create a formula method that is called after a formula is interpreted in parsing
+      TODO
+    */
+    public void formulaCell() {
     }
 }

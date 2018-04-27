@@ -1,12 +1,12 @@
 
-public class SpreadSheet {
+public class Spreadsheet {
     public static final int SHEET_HEIGHT = 10;
     public static final int SHEET_WIDTH = 7;
     private int letterA = 'A';
 
     private Cell[][] cellArray;
 
-    public SpreadSheet() {
+    public Spreadsheet() {
         cellArray = new Cell[SHEET_HEIGHT][SHEET_WIDTH];
         for (int rPos = 0; rPos < SHEET_HEIGHT; rPos++) {
 
@@ -46,16 +46,25 @@ public class SpreadSheet {
     }
 
 
-    public void clear() {
+    public void clear(String type) {
+        if (type.contains(" = ")) {
+            String[] user_input_parts = type.split(" ");
+            String cellName = user_input_parts[0];
+            String data = user_input_parts[2];
+            char letter = cellName.charAt(0);
+            letter = Character.toUpperCase(letter);
+            int row = Integer.parseInt(cellName.substring(1));
+            int col = letter - letterA;
+            cellArray[row][col] = new Cell(data);
+        }
+        else {
+            for (int let = 0; let < SHEET_HEIGHT; let++) {
+                for (int num = 0; num < SHEET_WIDTH; num++) {
+                    cellArray[let][num] = new Cell();
 
-        for (int let = 0; let < SHEET_HEIGHT; let++) {
-            for (int num = 0; num < SHEET_WIDTH; num++) {
-                cellArray[let][num].;
-
+                }
             }
         }
-
-
     }
 
     /**
@@ -71,31 +80,20 @@ public class SpreadSheet {
         char letter = cellName.charAt(0);
         int row = Integer.parseInt(cellName.substring(1));
         int col = letter - letterA;
-        cellArray[row][col].
+        cellArray[row][col] = new Cell(data);
         if (data.contains("(")) {
 
 
-        }
-        else if (data.contains("\"")) {
+        } else if (data.contains("\"")) {
+
+
+        } else {
 
 
         }
-        else{
 
 
-        }
-
-
-
-
-   }
-
-
-
-
-
-
-
+    }
 
 
 }
