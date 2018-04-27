@@ -14,17 +14,10 @@ public class NumberCell extends Cell{
 
 
     public double doubleCell(String contents){
-        for(int i = 0;i<contents.length();i++){
-            Double letterAdd = (double)contents.charAt(i);
+       double numReturn = new Double(contents);
 
 
-
-
-        }
-
-
-
-        return 6.0;
+        return numReturn ;
     }
 
 }
