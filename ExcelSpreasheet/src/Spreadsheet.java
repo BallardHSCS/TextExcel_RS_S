@@ -72,7 +72,7 @@ public class SpreadSheet {
         int row = Integer.parseInt(cellName.substring(1));
         int col = letter - letterA;
         cellArray[row][col].
-        if (data.contains("(")) {
+       /* if (data.contains("(")) {
 
 
         }
@@ -80,7 +80,7 @@ public class SpreadSheet {
 
 
         }
-        else{
+        else{ */
 
 
         }
