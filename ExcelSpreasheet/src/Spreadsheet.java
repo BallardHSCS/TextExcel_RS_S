@@ -66,7 +66,9 @@ public class Spreadsheet {
         }
     }
 
-    public void printCell()
+    public void printCell(){
+
+    }
 
     /**
      * Takes input from TextExcel and returns cell locations
@@ -91,6 +93,7 @@ public class Spreadsheet {
         if(input.length() == 2) {
             char letter = input.charAt(0);
             int num = input.charAt(1);
+            reference = true;
         }
 
         return reference;
