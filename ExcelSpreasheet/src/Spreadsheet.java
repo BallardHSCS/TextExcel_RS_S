@@ -47,10 +47,9 @@ public class Spreadsheet {
 
 
     public void clear(String type) {
-        if (type.contains(" = ")) {
+        if (type.contains(" ")) {
             String[] user_input_parts = type.split(" ");
-            String cellName = user_input_parts[0];
-            String data = user_input_parts[2];
+            String cellName = user_input_parts[1];
             char letter = cellName.charAt(0);
             letter = Character.toUpperCase(letter);
             int row = Integer.parseInt(cellName.substring(1))-1;
@@ -67,6 +66,8 @@ public class Spreadsheet {
         }
     }
 
+    public void printCell()
+
     /**
      * Takes input from TextExcel and returns cell locations
      * for the main method to use when exchanging data with the Cell class
@@ -82,13 +83,17 @@ public class Spreadsheet {
         int row = Integer.parseInt(cellName.substring(1)) -1;
         int col = letter - letterA;
         cellArray[row][col] = new Cell(data);
-        if (data.contains("(")) {
-
-
-        }
 
 
     }
+    public boolean isCell(String input){
+        boolean reference;
+        if(input.length() == 2) {
+            char letter = input.charAt(0);
+            int num = input.charAt(1);
+        }
 
+        return reference;
+    }
 
 }

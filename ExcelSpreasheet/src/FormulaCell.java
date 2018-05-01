@@ -23,9 +23,9 @@ ArrayList <Cell> refCells = new ArrayList<Cell>();
 
     }
     public void sum(){
-        int total = 0 ;
+        /*int total = 0 ;
         for(int i = 0; i<refCells.length(); i++){
-            total += new Integer(refCells.get(i));
+            total += new Integer(refCells.get(i));*/{
         }
 
     }
