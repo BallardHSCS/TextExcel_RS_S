@@ -66,8 +66,14 @@ public class Spreadsheet {
         }
     }
 
-    public void printCell(){
+    public String printCell(String input){
 
+        char letter = input.charAt(0);
+        letter = Character.toUpperCase(letter);
+        int row = Integer.parseInt(input.substring(1))-1;
+        int col = letter - letterA;
+        String cellprint = cellArray[row][col].printToSpreadsheet();
+        return cellprint;
     }
 
     /**
@@ -88,7 +94,7 @@ public class Spreadsheet {
 
 
     }
-    public boolean isCell(String input){
+    /*public boolean isCell(String input){
         boolean reference;
         if(input.length() == 2) {
             char letter = input.charAt(0);
@@ -97,6 +103,7 @@ public class Spreadsheet {
         }
 
         return reference;
-    }
+    }*/
+
 
 }

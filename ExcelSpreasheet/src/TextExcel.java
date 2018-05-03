@@ -39,6 +39,10 @@ public class TextExcel {
                 } else {
 
             }
+
         }
+        else{
+                System.out.println(sheet.printCell(user_input));
+            }
     }while (!done);
         command_input.close();}}

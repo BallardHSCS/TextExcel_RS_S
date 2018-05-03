@@ -22,12 +22,12 @@ ArrayList <Cell> refCells = new ArrayList<Cell>();
     public void Average(){
 
     }
-    public void sum(int numCells){
+    /*public void sum(int numCells){
     ArrayList <Double> cellsAdd = new ArrayList<Double>();
     for(int i = 0; i<numCells; i++){
     cellsAdd += ;
 }
-        }
+        }*/
 
 
     public void order(){
