@@ -14,6 +14,16 @@ ArrayList <Cell> refCells = new ArrayList<Cell>();
     /*TODO create a formula method that is called after a formula is interpreted in parsing
       TODO
     */
+    public void operators(String contents){
+        ArrayList <String> elements = new ArrayList();
+        String[] inPart = contents.split(" ");
+        for(int step = 0; step< contents.length();step++){
+          elements.add(inPart[step]);
+        }
+
+        
+    }
+
     public void formulaCell() {
 
 
