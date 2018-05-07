@@ -14,12 +14,19 @@ ArrayList <Cell> refCells = new ArrayList<Cell>();
     /*TODO create a formula method that is called after a formula is interpreted in parsing
       TODO
     */
+
+
+
+
+    //ISSUE: You do not need a house ArrayList in order to store the split, split does it for you
     public void operators(String contents){
-        ArrayList <String> elements = new ArrayList();
         String[] inPart = contents.split(" ");
-        for(int step = 0; step< contents.length();step++){
-          elements.add(inPart[step]);
-        }
+        /*
+        * Create a for loop here that goes from the [1] position to .length -1
+        * Within each execution, check the position save it as either a number or a char save numbers as double variables
+        * and compare chars as operators, use rules of pemdas to preform operations based on the operator by using the saved doubles
+        * As a precondition, it may be wise to recognize that numbers appear ever other index
+        * */
 
         
     }
