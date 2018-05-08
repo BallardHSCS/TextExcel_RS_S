@@ -15,9 +15,13 @@ ArrayList <Cell> refCells = new ArrayList<Cell>();
       TODO
     */
 
+    public void formulaCell() {
 
 
 
+    }
+
+    //TODO Finish checkpoint 4, this is the easy part
     //ISSUE: You do not need a house ArrayList in order to store the split, split does it for you
     public void operators(String contents){
         String[] inPart = contents.split(" ");
@@ -31,12 +35,15 @@ ArrayList <Cell> refCells = new ArrayList<Cell>();
         
     }
 
-    public void formulaCell() {
 
 
-
-    }
-    public void Average(){
+    /* TODO CHECKPOINT 5
+    *This all belongs in CP 5 and CP 6 respectively
+    * Use recursion to access and call cells, I haven't really thought this through as much
+    *Recursion is an important aspect
+    * There may be some documentation in the google docs
+    * */
+    public void average(){
 
     }
     /*public void sum(int numCells){
@@ -47,12 +54,17 @@ ArrayList <Cell> refCells = new ArrayList<Cell>();
         }*/
 
 
+    public void sum(){}
+
+    //TODO Checkpoint 6
     public void order(){
 
     }
     public void reverseOrder(){
 
     }
+
+
     public void sorter(){
 
 
