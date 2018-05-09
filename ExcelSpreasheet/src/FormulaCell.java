@@ -6,6 +6,8 @@
 * */
 
 
+import com.sun.org.apache.xpath.internal.functions.FuncSubstring;
+
 import java.util.ArrayList;
 
 public class FormulaCell extends Cell {
@@ -20,14 +22,48 @@ ArrayList <Cell> refCells = new ArrayList<Cell>();
 
 
     }
-
+    //Contents: ( 1 + 3 )
     //TODO Finish checkpoint 4, this is the easy part
     //ISSUE: You do not need a house ArrayList in order to store the split, split does it for you
-    public void operators(String contents){
+    public void operations(String contents){
         String[] inPart = contents.split(" ");
+
+        for(int step =1; step<=contents.length()-1; step+=2){
+            String preNum = inPart[step];
+            String preOp = inPart[step + 1];
+            String preNum2 = inPart[step + 2];
+
+               double newNum1 = Double.parseDouble(preNum);
+               double newNum2 = Double.parseDouble(preNum2);
+               char operatorIn =  preOp.charAt(1);
+                operator(operatorIn, newNum1, newNum2);
+           }}
+
+
+
+
+
+public void operator (char in,double num1,double num2){
+            if(in == '+'){
+
+            }
+            else if( in == '-'){
+
+
+            }
+
+            else if(in == '*'){}
+
+            else if (in == '/'){}
+
+            else{
+                System.out.println("Invalid Operator");
+
+            }
+    }
         /*
         * Create a for loop here that goes from the [1] position to .length -1
-        * Within each execution, check the position save it as either a number or a char save numbers as double variables
+        * Within each execution, check the position save it as either a number or a char. Save numbers as double variables
         * and compare chars as operators, use rules of pemdas to preform operations based on the operator by using the saved doubles
         * As a precondition, it may be wise to recognize that numbers appear ever other index
         * */
