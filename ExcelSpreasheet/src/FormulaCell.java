@@ -57,6 +57,7 @@ ArrayList <Cell> refCells = new ArrayList<Cell>();
 
 
 public double operator (char in,double num1,double num2){
+          for(int i = 0; i <= 3; i++ ){
             if(in == '+'){
                 return(num1 + num2);
 
@@ -78,6 +79,7 @@ public double operator (char in,double num1,double num2){
                 return(-1);
 
             }
+          }
     }
         /*
         * Create a for loop here that goes from the [1] position to .length -1
