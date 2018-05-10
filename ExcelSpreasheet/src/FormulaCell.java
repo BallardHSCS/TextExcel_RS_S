@@ -25,39 +25,57 @@ ArrayList <Cell> refCells = new ArrayList<Cell>();
     //Contents: ( 1 + 3 )
     //TODO Finish checkpoint 4, this is the easy part
     //ISSUE: You do not need a house ArrayList in order to store the split, split does it for you
-    public void operations(String contents){
+    public void operationsMod(String contents, int intNum){
+
+    }
+
+    public void operations(String contents) {
+        int exitVal = 0;
         String[] inPart = contents.split(" ");
-
-        for(int step =1; step<=contents.length()-1; step+=2){
-            String preNum = inPart[step];
-            String preOp = inPart[step + 1];
-            String preNum2 = inPart[step + 2];
-
-               double newNum1 = Double.parseDouble(preNum);
-               double newNum2 = Double.parseDouble(preNum2);
-               char operatorIn =  preOp.charAt(1);
-                operator(operatorIn, newNum1, newNum2);
-           }}
+        for (int step = 1; step <= contents.length()-1; step +=3) {
+            if(inPart[step].equals(")") && step!=contents.length()-1){
+               step+=3;
+            }
 
 
 
+            for (int parse = step ; parse <= 3; step++) {
+                String preNum = inPart[step];
+                String preOp = inPart[step + 1];
+                String preNum2 = inPart[step + 2];
+
+                double newNum1 = Double.parseDouble(preNum);
+                double newNum2 = Double.parseDouble(preNum2);
+                char operatorIn = preOp.charAt(1);
+               exitVal+= operator(operatorIn, newNum1, newNum2);
+            }
+        }
+    }
 
 
-public void operator (char in,double num1,double num2){
+
+
+
+public double operator (char in,double num1,double num2){
             if(in == '+'){
+                return(num1 + num2);
 
             }
             else if( in == '-'){
-
-
+                return(num1- num2);
             }
 
-            else if(in == '*'){}
+            else if(in == '*'){
+                return(num1 * num2);
+            }
 
-            else if (in == '/'){}
+            else if (in == '/'){
+                return(num1 / num2);
+            }
 
             else{
                 System.out.println("Invalid Operator");
+                return(-1);
 
             }
     }
