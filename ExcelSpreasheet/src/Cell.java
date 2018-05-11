@@ -30,12 +30,28 @@ public class Cell {
         contents = data;
     }
 
-
+    /**
+     *
+     * This method, is for accessing the contents of cells, so that it can be printed in the board.
+     * @return
+     * returns the contents of the formatted cell.
+     *
+     */
     public String printToSpreadsheet(){
         return formatCell(contents);
     }
 
+    /**
+     * The formatCell method is for making sure that the user input is valid input.
+     * It helps keep the board from crashing.
+     *
+     * @param input
+     * requires user input in a string
+     * @return
+     * returnes a new formatted cell
+     */
 
+    //TODO: Make it so that if @param input.length() > 12, the cell will not be accepted and a message will be printed to the user
     public String formatCell(String input){
         int format = EMPTY_CELL.length();
         int formatdif = format - input.length();
