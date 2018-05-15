@@ -36,23 +36,23 @@ public class FormulaCell extends Cell {
     public void operations(String contents) {
         int exitVal = 0;
         String[] inPart = contents.split(" ");
-        for (int step = 1; step <= contents.length() - 1; step += 3) {
-            if (inPart[step].equals(")") && step != contents.length() - 1) {
-                step += 3;
-            }
 
 
-            for (int parse = step; parse <= 3; step++) {
-                String preNum = inPart[step];
+        String sideL = inPart[1];
+
+        for (int i = 2; i < inPart.length() - 1; i += 2) {
+            String sideR = inPart[i + 1];
+            operator(inPart[i], Double.parseDouble(sideL), Double.parseDouble(sideR));
+        }
+               /* String preNum = inPart[step];
                 String preOp = inPart[step + 1];
                 String preNum2 = inPart[step + 2];
 
                 double newNum1 = Double.parseDouble(preNum);
                 double newNum2 = Double.parseDouble(preNum2);
                 char operatorIn = preOp.charAt(1);
-                exitVal += operator(operatorIn, newNum1, newNum2);
-            }
-        }
+                exitVal += operator(operatorIn, newNum1, newNum2); */
+
     }
 //TODO: Make @operator private in the future
 
@@ -74,10 +74,8 @@ public class FormulaCell extends Cell {
     // ( 1 + 3 * 9 )
     public double operator(char in, double num1, double num2) {
         double newNum = -1;
-        for (int i = 0; i <= 3; i++) {
             if (in == '+') {
                 newNum = (num1 + num2);
-
             } else if (in == '-') {
                 newNum = (num1 - num2);
             } else if (in == '*') {
@@ -86,9 +84,6 @@ public class FormulaCell extends Cell {
                 newNum = (num1 / num2);
             } else {
                 System.out.println("Invalid Operator");
-
-
-            }
         }
     return newNum;
     }
