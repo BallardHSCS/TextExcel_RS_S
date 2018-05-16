@@ -33,9 +33,8 @@ public class FormulaCell extends Cell {
      * @param contents
      *
      */
-    public void operations(String contents) {
-        int exitVal = 0;
-        int ParenLength = 1;
+    public double operations(String contents) {
+        double exitVal = 0;
         int opLength = 2;
         int elementIndex = 0;
         String[] inPart = contents.split(" ");
@@ -43,12 +42,16 @@ public class FormulaCell extends Cell {
 
 
         String sideL = inPart[1];
+        String sideR = "";
+        for (int i = 2; i < inPart.length - 1; i += opLength) {
+            sideR = inPart[i + 1];
 
-        for (int i = 2; i < inPart.length - ParenLength; i += opLength) {
-            String sideR = inPart[i + 1];
-            exitVal += operator(inPart[i].charAt(elementIndex), Double.parseDouble(sideL), Double.parseDouble(sideR));
+            exitVal = operator(inPart[i].charAt(elementIndex), Double.parseDouble(sideL), Double.parseDouble(sideR));
+            sideL = Double.toString(exitVal);
 
         }
+        return exitVal;}
+
                /* String preNum = inPart[step];
                 String preOp = inPart[step + 1];
                 String preNum2 = inPart[step + 2];
