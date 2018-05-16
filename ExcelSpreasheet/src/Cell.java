@@ -53,14 +53,19 @@ public class Cell {
 
     //TODO: Make it so that if @param input.length() > 12, the cell will not be accepted and a message will be printed to the user
     public String formatCell(String input){
+        String formatted = "";
         int format = EMPTY_CELL.length();
         int formatdif = format - input.length();
-        for(int i = 0; i< formatdif; i++ ){
-            input += " ";
+        if(!(input.length()<= format)) {
+            for (int i = 0; i < formatdif; i++) {
+                formatted += " ";
 
+            }
+            formatted += input;
         }
-        String formatted = input;
-
+        else{
+            System.out.println("Error, String is too large");
+        }
         return formatted;
     }
 }
