@@ -92,7 +92,6 @@ public class Spreadsheet {
         int col = letter - letterA;
         cellArray[row][col] = new Cell(data);
 
-
     }
     /*public boolean isCell(String input){
         boolean reference;
