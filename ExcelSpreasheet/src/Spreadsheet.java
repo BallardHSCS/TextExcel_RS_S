@@ -46,6 +46,7 @@ public class Spreadsheet {
     }
 
 
+
     public void clear(String type) {
         if (type.contains(" ")) {
             String[] user_input_parts = type.split(" ");
@@ -65,6 +66,8 @@ public class Spreadsheet {
             }
         }
     }
+
+
 
     public String printCell(String input){
 
@@ -92,6 +95,10 @@ public class Spreadsheet {
         int col = letter - letterA;
         cellArray[row][col] = new Cell(data);
 
+    }
+
+    public  String getCell(int r, int c){
+        return cellArray[r][c].printToSpreadsheet();
     }
     /*public boolean isCell(String input){
         boolean reference;

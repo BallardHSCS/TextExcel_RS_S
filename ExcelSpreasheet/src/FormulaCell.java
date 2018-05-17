@@ -12,14 +12,14 @@ import java.util.ArrayList;
 
 public class FormulaCell extends Cell {
     ArrayList<Cell> refCells = new ArrayList<Cell>();
+    private String contents = "";
 
     /*TODO create a formula method that is called after a formula is interpreted in parsing
       TODO
     */
 
     public void formulaCell() {
-
-
+        contents = super.EMPTY_CELL;
     }
 
     //Contents: ( 1 + 3 )
@@ -61,7 +61,7 @@ public class FormulaCell extends Cell {
                 char operatorIn = preOp.charAt(1);
                 exitVal += operator(operatorIn, newNum1, newNum2); */
 
-    }
+
 //TODO: Make @operator private in the future
 
     /**

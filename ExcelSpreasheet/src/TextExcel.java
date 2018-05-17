@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class TextExcel {
     public static void main(String[] args) {
-
+        FormulaCell formula = new FormulaCell();
         Scanner command_input = new Scanner(System.in);
         boolean done = false;
 
@@ -29,9 +29,9 @@ public class TextExcel {
 
             //TODO: Error Check certain cases below, for example if contents contain' = ' within a string input
             else if (user_input.contains(" = ")) {
-               sheet.setCell(user_input);
+                sheet.setCell(user_input);
                 if (user_input.contains("(")) {
-
+                    formula.operations(user_input);
 
                 } else if (user_input.contains("\"")) {
 
