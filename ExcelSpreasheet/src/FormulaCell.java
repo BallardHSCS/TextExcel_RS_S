@@ -18,8 +18,8 @@ public class FormulaCell extends Cell {
       TODO
     */
 
-    public void formulaCell() {
-        contents = super.EMPTY_CELL;
+    public void formulaCell(String data) {
+        contents = data;
     }
 
     //Contents: ( 1 + 3 )
@@ -31,14 +31,12 @@ public class FormulaCell extends Cell {
 
     /**
      * @param contents
-     *
      */
     public double operations(String contents) {
         double exitVal = 0;
         int opLength = 2;
         int elementIndex = 0;
         String[] inPart = contents.split(" ");
-
 
 
         String sideL = inPart[1];
@@ -50,7 +48,8 @@ public class FormulaCell extends Cell {
             sideL = Double.toString(exitVal);
 
         }
-        return exitVal;}
+        return exitVal;
+    }
 
                /* String preNum = inPart[step];
                 String preOp = inPart[step + 1];
@@ -65,35 +64,28 @@ public class FormulaCell extends Cell {
 //TODO: Make @operator private in the future
 
     /**
-     *
-     * @param in
-     * in is the designation for operators taken into the method
-     *
-     * @param num1
-     * First number used in operation
-     *
-     * @param num2
-     * Second number used in operation
-     *
-     * Example: ( 'num1' 'in' 'num2' )
-     *
+     * @param in   in is the designation for operators taken into the method
+     * @param num1 First number used in operation
+     * @param num2 Second number used in operation
+     *             <p>
+     *             Example: ( 'num1' 'in' 'num2' )
      * @return
      */
     // ( 1 + 3 * 9 )
-    public double operator(char in, double num1, double num2) {
+    private double operator(char in, double num1, double num2) {
         double newNum = -1;
-            if (in == '+') {
-                newNum = (num1 + num2);
-            } else if (in == '-') {
-                newNum = (num1 - num2);
-            } else if (in == '*') {
-                newNum = (num1 * num2);
-            } else if (in == '/') {
-                newNum = (num1 / num2);
-            } else {
-                System.out.println("Invalid Operator");
+        if (in == '+') {
+            newNum = (num1 + num2);
+        } else if (in == '-') {
+            newNum = (num1 - num2);
+        } else if (in == '*') {
+            newNum = (num1 * num2);
+        } else if (in == '/') {
+            newNum = (num1 / num2);
+        } else {
+            System.out.println("Invalid Operator");
         }
-    return newNum;
+        return newNum;
     }
         /*
         * Create a for loop here that goes from the [1] position to .length -1
@@ -110,35 +102,58 @@ public class FormulaCell extends Cell {
    * There may be some documentation in the google docs
    * */
     public void average() {
-
     }
+
     /*public void sum(int numCells){
     ArrayList <Double> cellsAdd = new ArrayList<Double>();
     for(int i = 0; i<numCells; i++){
     cellsAdd += ;
 }
         }*/
-
-
     public void sum() {
     }
 
+
     //TODO Checkpoint 6
     public void order() {
-
     }
 
     public void reverseOrder() {
+    }
 
+    public void sorter(int[] a) {
+        for (int i = 0; i < a.length; i++) {
+            int minPos = minimumPosition(a, i);
+            swap(a, minPos, i);
+        }
     }
 
 
-    public void sorter() {
+    private static int minimumPosition(int a[], int from) {
+        int minPos = from;
+        for (int i = from + 1; i < a.length; i++) {
+            if (a[i] < a[minPos]) {
+                minPos = i;
+            }
+        }
+        return minPos;
+    }
 
+    public static int linearSearch(int[] a, int x) {
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] == x) {
+                return i;
+            }
+        }
+        return -1;
 
     }
 
-
+    private static void swap(int a[], int i, int j) {
+        int temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
+    }
 }
 
 

@@ -49,6 +49,13 @@ public class Spreadsheet {
 
     public void clear(String type) {
         if (type.contains(" ")) {
+            if(type.contains("-")){
+                String[] range_parts = type.split(" ");
+
+
+
+            }
+            else{
             String[] user_input_parts = type.split(" ");
             String cellName = user_input_parts[1];
             char letter = cellName.charAt(0);
@@ -56,7 +63,8 @@ public class Spreadsheet {
             int row = Integer.parseInt(cellName.substring(1))-1;
             int col = letter - letterA;
             cellArray[row][col] = new Cell();
-        }
+        }}
+
         else {
             for (int let = 0; let < SHEET_HEIGHT; let++) {
                 for (int num = 0; num < SHEET_WIDTH; num++) {
@@ -86,16 +94,23 @@ public class Spreadsheet {
      * @param input
      */
     public void setCell(String input) {
-        String[] user_input_parts = input.split(" ");
-        String cellName = user_input_parts[0];
-        String data = user_input_parts[2];
-        char letter = cellName.charAt(0);
-        letter = Character.toUpperCase(letter);
-        int row = Integer.parseInt(cellName.substring(1)) -1;
-        int col = letter - letterA;
-        cellArray[row][col] = new Cell(data);
+        FormulaCell formula = new FormulaCell();
+        if(input.contains("(")){
+            formula.operations(input);
 
-    }
+        }
+
+        else {
+            String[] user_input_parts = input.split(" ");
+            String cellName = user_input_parts[0];
+            String data = user_input_parts[2];
+            char letter = cellName.charAt(0);
+            letter = Character.toUpperCase(letter);
+            int row = Integer.parseInt(cellName.substring(1)) - 1;
+            int col = letter - letterA;
+            cellArray[row][col] = new Cell(data);
+
+        }}
 
     public  String getCell(int r, int c){
         return cellArray[r][c].printToSpreadsheet();
