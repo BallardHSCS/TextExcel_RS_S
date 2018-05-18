@@ -69,7 +69,6 @@ public class FormulaCell extends Cell {
      * @param in   in is the designation for operators taken into the method
      * @param num1 First number used in operation
      * @param num2 Second number used in operation
-     *             <p>
      *             Example: ( 'num1' 'in' 'num2' )
      * @return
      */
