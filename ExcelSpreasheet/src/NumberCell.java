@@ -6,10 +6,8 @@
 
 public class NumberCell extends Cell{
 
-    public NumberCell(){
-
-
-
+    public NumberCell(String data){
+    super(data);
     }
 
 

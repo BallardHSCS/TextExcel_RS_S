@@ -11,15 +11,17 @@ import com.sun.org.apache.xpath.internal.functions.FuncSubstring;
 import java.util.ArrayList;
 
 public class FormulaCell extends Cell {
-    ArrayList<Cell> refCells = new ArrayList<Cell>();
-    private String contents = "";
+    private Spreadsheet sheet;
+
 
     /*TODO create a formula method that is called after a formula is interpreted in parsing
       TODO
     */
 
-    public void formulaCell(String data) {
-        contents = data;
+    public FormulaCell(String data, Spreadsheet newSheet) {
+        super(data);
+        sheet = new Spreadsheet();
+
     }
 
     //Contents: ( 1 + 3 )

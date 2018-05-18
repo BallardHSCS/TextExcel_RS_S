@@ -1,15 +1,19 @@
 
+import java.text.Normalizer;
 import java.util.Scanner;
 
 public class TextExcel {
     public static void main(String[] args) {
-
+        Spreadsheet sheet = new Spreadsheet();
+        FormulaCell formula = new FormulaCell("", sheet);
         Scanner command_input = new Scanner(System.in);
         boolean done = false;
+        char printerChar = '"';
 
-        Spreadsheet sheet = new Spreadsheet();
+
         System.out.println("If you seek to exit the program, type 'exit'");
         System.out.println("For adding to the Spreadsheet, type commands in the format of 'A3 = Fool' in order to put data on the spreadsheet ");
+        System.out.println("Particularly for strings make sure your string contains " + printerChar + printerChar + " in a format such as A3 = " + printerChar + " Fool" + printerChar);
         System.out.println("To clear all cells on the Sheet, type clear, otherwise, type CellName(A3) = clear");
         System.out.println("For formulas, type your formula in the correct syntax of 'A1 = ( enter formula )' \n");
         System.out.println(sheet);
@@ -27,14 +31,15 @@ public class TextExcel {
                 sheet.clear(user_input);
             }
 
-            //TODO: Error Check certain cases below, for example if contents contain' = ' within a string input
             else if (user_input.contains(" = ")) {
                 sheet.setCell(user_input);
 
 
-            } else {
-                System.out.println(sheet.printCell(user_input));
             }
+            else if (user_input.contains("(")){
+                System.out.println((formula.operations(user_input)));
+            }
+
         } while (!done);
         command_input.close();
     }

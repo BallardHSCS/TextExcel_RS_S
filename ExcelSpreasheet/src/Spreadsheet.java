@@ -94,10 +94,32 @@ public class Spreadsheet {
      * @param input
      */
     public void setCell(String input) {
-        FormulaCell formula = new FormulaCell();
+        char stringChecker = '"';
+        FormulaCell formulaCell;
+        NumberCell number;
         if(input.contains("(")){
-            formula.operations(input);
+            String data = "";
+            String[] user_input_parts = input.split(" ");
+            String cellName = user_input_parts[0];
+            char letter = cellName.charAt(0);
+            letter = Character.toUpperCase(letter);
+            int row = Integer.parseInt(cellName.substring(1)) - 1;
+            int col = letter - letterA;
+            for (int i = 2; i <= user_input_parts.length -1; i++){
+                data += user_input_parts[i] + " ";
+            }
+            cellArray[row][col] = new FormulaCell(data, this);
 
+        }
+        else if(input.contains(stringChecker + "")){
+            String[] user_input_parts = input.split(" ");
+            String cellName = user_input_parts[0];
+            String data = user_input_parts[2];
+            char letter = cellName.charAt(0);
+            letter = Character.toUpperCase(letter);
+            int row = Integer.parseInt(cellName.substring(1)) - 1;
+            int col = letter - letterA;
+            cellArray[row][col] = new Cell(data);
         }
 
         else {
@@ -108,7 +130,8 @@ public class Spreadsheet {
             letter = Character.toUpperCase(letter);
             int row = Integer.parseInt(cellName.substring(1)) - 1;
             int col = letter - letterA;
-            cellArray[row][col] = new Cell(data);
+            cellArray[row][col] = new NumberCell(data);
+
 
         }}
 
