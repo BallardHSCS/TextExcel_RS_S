@@ -102,7 +102,13 @@ public class FormulaCell extends Cell {
    *Recursion is an important aspect
    * There may be some documentation in the google docs
    * */
-    public void average() {
+    public double average(String contents) {
+        double Avg;
+        String[] inParse = contents.split(" ");
+        Avg = sum(contents)/inParse.length;
+
+
+        return Avg;
     }
 
     /*public void sum(int numCells){
@@ -111,9 +117,20 @@ public class FormulaCell extends Cell {
     cellsAdd += ;
 }
         }*/
-    public void sum() {
-    }
+    public double sum(String contents) {
+        double sum = 0  ;
+        String[] parseIn = contents.split(" ");
+        for(int i =0; i< parseIn.length;i++){
+            sum +=  Double.parseDouble(parseIn[i]);
 
+        }
+        return sum;
+    }
+public double getNumCell(String input) {
+double cellVal = 0;
+
+return cellVal;
+}
 
     //TODO Checkpoint 6
     public void order() {
