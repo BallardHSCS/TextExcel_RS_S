@@ -21,7 +21,7 @@ public class FormulaCell extends Cell {
 
     public FormulaCell(String data, Spreadsheet newSheet) {
         super(data);
-        sheet = new Spreadsheet();
+        sheet = newSheet;
 
     }
 
@@ -34,21 +34,29 @@ public class FormulaCell extends Cell {
 
     /**
      * @param contents
+     * @return exitVal
      */
     public double operations(String contents) {
+        int leftRow=0;
+        int leftCol=0;
+        int rightRow=0;
+        int rightCol=0;
         double exitVal = 0;
         int opLength = 2;
         int elementIndex = 0;
         String[] inPart = contents.split(" ");
-
-
         String sideL = inPart[1];
         String sideR = "";
         for (int i = 2; i < inPart.length - 1; i += opLength) {
             sideR = inPart[i + 1];
+            if(sideL.charAt(0)==){
+
+            }
+            leftRow = ;
 
             exitVal = operator(inPart[i].charAt(elementIndex), Double.parseDouble(sideL), Double.parseDouble(sideR));
             sideL = Double.toString(exitVal);
+
 
         }
         return exitVal;
