@@ -144,9 +144,28 @@ public class FormulaCell extends Cell {
     }
 
     public double sum(String input){
+        String[] parseForCells = input.split(" ");
+        ArrayList<Double> dubs = new ArrayList<>();
+
+        String firstCell = parseForCells[2];
+        char letter = firstCell.charAt(0);
+        letter = Character.toUpperCase(letter);
+        int row = Integer.parseInt(firstCell.substring(1))-1;
+        int col = letter - letterA;
 
 
-        return 0;
+        String secondCell = parseForCells[4];
+        char letterTwo = secondCell.charAt(0);
+        letterTwo = Character.toUpperCase(letterTwo);
+        int rowTwo = Integer.parseInt(secondCell.substring(1))-1;
+        int colTwo = letterTwo - letterA;
+        for(int r = row; r < rowTwo; r++){
+            for(int c = col; c < colTwo; c++){
+                dubs.add(Double.parseDouble(sheet.getCell(r, c)));
+            }
+        }
+
+        return sum(dubs);
     }
 
 public double getNumCell(String input) {
