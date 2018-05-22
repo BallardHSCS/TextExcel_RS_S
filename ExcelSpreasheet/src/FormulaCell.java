@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 public class FormulaCell extends Cell {
     private Spreadsheet sheet;
+    private int letterA = 'A';
 
 
     /*TODO create a formula method that is called after a formula is interpreted in parsing
@@ -102,13 +103,29 @@ public class FormulaCell extends Cell {
    *Recursion is an important aspect
    * There may be some documentation in the google docs
    * */
-    public double average(String contents) {
-        double Avg;
-        String[] inParse = contents.split(" ");
-        Avg = sum(contents)/inParse.length;
+    public double average(String input) {
+        String[] parseForCells = input.split(" ");
+        ArrayList<Double> dubs = new ArrayList<>();
+
+        String firstCell = parseForCells[2];
+        char letter = firstCell.charAt(0);
+        letter = Character.toUpperCase(letter);
+        int row = Integer.parseInt(firstCell.substring(1))-1;
+        int col = letter - letterA;
 
 
-        return Avg;
+        String secondCell = parseForCells[4];
+        char letterTwo = secondCell.charAt(0);
+        letterTwo = Character.toUpperCase(letterTwo);
+        int rowTwo = Integer.parseInt(secondCell.substring(1))-1;
+        int colTwo = letterTwo - letterA;
+        for(int r = row; r < rowTwo; r++){
+            for(int c = col; c < colTwo; c++){
+                dubs.add(Double.parseDouble(sheet.getCell(r, c)));
+            }
+        }
+
+        return sum(dubs)/ dubs.size();
     }
 
     /*public void sum(int numCells){
@@ -117,15 +134,21 @@ public class FormulaCell extends Cell {
     cellsAdd += ;
 }
         }*/
-    public double sum(String contents) {
-        double sum = 0  ;
-        String[] parseIn = contents.split(" ");
-        for(int i =0; i< parseIn.length;i++){
-            sum +=  Double.parseDouble(parseIn[i]);
-
+    public double sum( ArrayList<Double> dubs) {
+        int total = 0;
+        for(int i = 0; i < dubs.size(); i ++){
+            total += dubs.get(i);
         }
-        return sum;
+
+        return total;
     }
+
+    public double sum(String input){
+
+
+        return 0;
+    }
+
 public double getNumCell(String input) {
 double cellVal = 0;
 
