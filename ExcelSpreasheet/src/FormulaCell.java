@@ -134,7 +134,7 @@ public class FormulaCell extends Cell {
     cellsAdd += ;
 }
         }*/
-    public double sum( ArrayList<Double> dubs) {
+    private double sum( ArrayList<Double> dubs) {
         int total = 0;
         for(int i = 0; i < dubs.size(); i ++){
             total += dubs.get(i);
