@@ -13,6 +13,7 @@ import java.util.ArrayList;
 public class FormulaCell extends Cell {
     private Spreadsheet sheet;
     private int letterA = 'A';
+    private int letterZ = 'Z';
 
 
     /*TODO create a formula method that is called after a formula is interpreted in parsing
@@ -37,10 +38,10 @@ public class FormulaCell extends Cell {
      * @return exitVal
      */
     public double operations(String contents) {
-        int leftRow=0;
-        int leftCol=0;
-        int rightRow=0;
-        int rightCol=0;
+        int leftRow = 0;
+        int leftCol = 0;
+        int rightRow = 0;
+        int rightCol = 0;
         double exitVal = 0;
         int opLength = 2;
         int elementIndex = 0;
@@ -49,10 +50,18 @@ public class FormulaCell extends Cell {
         String sideR = "";
         for (int i = 2; i < inPart.length - 1; i += opLength) {
             sideR = inPart[i + 1];
-            if(sideL.charAt(0)==){
+            if (letterA < sideL.toUpperCase().charAt(0) && sideL.toUpperCase().charAt(0) < letterZ) {
+                leftRow = sideL.charAt(1);
+                leftCol = sideL.charAt(0) - letterA;
+                sideL =findCellVal(leftRow,leftCol);
 
             }
-            leftRow = ;
+            if (letterA < sideR.toUpperCase().charAt(0) && sideR.toUpperCase().charAt(0) < letterZ) {
+                rightRow = sideR.charAt(1);
+                rightCol = sideR.charAt(0) - letterA;
+
+            }
+
 
             exitVal = operator(inPart[i].charAt(elementIndex), Double.parseDouble(sideL), Double.parseDouble(sideR));
             sideL = Double.toString(exitVal);
@@ -61,6 +70,14 @@ public class FormulaCell extends Cell {
         }
         return exitVal;
     }
+
+
+    private double findCellVal(int row ,int col ) {
+
+    return sheet.getCell(row,col);
+
+    }
+
 
                /* String preNum = inPart[step];
                 String preOp = inPart[step + 1];

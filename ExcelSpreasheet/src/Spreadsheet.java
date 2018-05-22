@@ -160,6 +160,8 @@ public class Spreadsheet {
 
         return reference;
     }*/
-
+    public double getCellVal(int row ,int col ) {
+        return cellArray[row][col];
+    }
 
 }
