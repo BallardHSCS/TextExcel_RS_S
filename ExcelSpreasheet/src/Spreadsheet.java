@@ -51,7 +51,18 @@ public class Spreadsheet {
         if (type.contains(" ")) {
             if(type.contains("-")){
                 String[] range_parts = type.split(" ");
+                String firstCell = range_parts[2];
+                char letter = firstCell.charAt(0);
+                letter = Character.toUpperCase(letter);
+                int row = Integer.parseInt(firstCell.substring(1))-1;
+                int col = letter - letterA;
 
+
+                String secondCell = range_parts[4];
+                char letterTwo = secondCell.charAt(0);
+                letterTwo = Character.toUpperCase(letterTwo);
+                int rowTwo = Integer.parseInt(secondCell.substring(1))-1;
+                int colTwo = letterTwo - letterA;
 
 
             }
@@ -109,6 +120,7 @@ public class Spreadsheet {
                 data += user_input_parts[i] + " ";
             }
             cellArray[row][col] = new FormulaCell(data, this);
+
 
         }
         else if(input.contains(stringChecker + "")){
