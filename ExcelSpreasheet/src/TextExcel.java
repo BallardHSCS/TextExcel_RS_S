@@ -39,6 +39,9 @@ public class TextExcel {
             else if (user_input.contains("(")){
                 System.out.println((formula.operations(user_input)));
             }
+            else if (user_input.contains("sum")){
+                    formula.average(user_input);
+            }
 
         } while (!done);
         command_input.close();
