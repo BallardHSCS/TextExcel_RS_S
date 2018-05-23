@@ -36,6 +36,9 @@ public class TextExcel {
 
 
             }
+            else if (user_input.contains("=")==false && (65 < user_input.toUpperCase().charAt(0) && user_input.toUpperCase().charAt(0) < 90)){
+                System.out.println(sheet.getCell(Integer.parseInt(user_input.charAt(0))-65,user_input.charAt(1)));
+            }
             else if (user_input.contains("(")){
                 System.out.println((formula.operations(user_input)));
             }

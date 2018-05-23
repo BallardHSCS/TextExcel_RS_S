@@ -53,12 +53,14 @@ public class FormulaCell extends Cell {
             if (letterA < sideL.toUpperCase().charAt(0) && sideL.toUpperCase().charAt(0) < letterZ) {
                 leftRow = sideL.charAt(1);
                 leftCol = sideL.charAt(0) - letterA;
+
                 sideL =findCellVal(leftRow,leftCol);
 
             }
             if (letterA < sideR.toUpperCase().charAt(0) && sideR.toUpperCase().charAt(0) < letterZ) {
                 rightRow = sideR.charAt(1);
                 rightCol = sideR.charAt(0) - letterA;
+                sideR = findCellVal(rightRow, rightCol);
 
             }
 
@@ -72,9 +74,9 @@ public class FormulaCell extends Cell {
     }
 
 
-    private double findCellVal(int row ,int col ) {
+    private String findCellVal(int row ,int col ) {
 
-    return sheet.getCell(row,col);
+    return sheet.getCellVal(row,col);
 
     }
 

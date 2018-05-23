@@ -1,3 +1,4 @@
+import static oracle.jrockit.jfr.events.Bits.doubleValue;
 
 public class Spreadsheet {
     public static final int SHEET_HEIGHT = 10;
@@ -160,8 +161,17 @@ public class Spreadsheet {
 
         return reference;
     }*/
-    public double getCellVal(int row ,int col ) {
-        return cellArray[row][col];
+    public String getCellVal(int row ,int col ) {
+        return cellArray[row][col].printToSpreadsheet();
     }
 
 }
+
+//TODO: Fix Format Cell
+//TODO: Fix print and calls of formulas with the operation method
+//TODO Finish recursion and cell references
+
+/*
+* Submit 5 and then we will use search and sort algorithms with ranges in order to properly reference and use sorting
+* Push 6 than final
+* */
