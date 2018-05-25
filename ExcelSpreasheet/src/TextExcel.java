@@ -3,12 +3,15 @@ import java.text.Normalizer;
 import java.util.Scanner;
 
 public class TextExcel {
+    private static final int letterA = 'A';
+
     public static void main(String[] args) {
         Spreadsheet sheet = new Spreadsheet();
         FormulaCell formula = new FormulaCell("", sheet);
         Scanner command_input = new Scanner(System.in);
         boolean done = false;
         char printerChar = '"';
+
 
 
         System.out.println("If you seek to exit the program, type 'exit'");
@@ -40,10 +43,13 @@ public class TextExcel {
                 System.out.println(sheet.getCell(Integer.parseInt(user_input.charAt(0))-65,user_input.charAt(1)));
             }*/
             else if (user_input.contains("(")){
-                System.out.println((formula.operations(user_input)));
+                System.out.println(sheet.partialBFVal);
             }
             else if (user_input.contains("sum")){
-                    formula.average(user_input);
+                System.out.println(formula.average(user_input));
+            }
+            else{
+                System.out.println(sheet.getCell(1,3 ));
             }
 
         } while (!done);

@@ -1,4 +1,4 @@
-/*
+/**
 * This is the FormulaCell class.
 * It extends from the Cell class.
 * Depending on situation it should store the
@@ -38,7 +38,8 @@ public class FormulaCell extends Cell {
      * @param contents
      * @return exitVal
      */
-    public double operations(String contents) {
+    public String operations(String contents) {
+        String returnable = "";
         int leftRow = 0;
         int leftCol = 0;
         int rightRow = 0;
@@ -55,13 +56,13 @@ public class FormulaCell extends Cell {
                 leftRow = sideL.charAt(1);
                 leftCol = sideL.charAt(0) - letterA;
 
-                sideL =findCellVal(leftRow,leftCol);
+                sideL =sheet.getCell(leftRow,leftCol);
 
             }
             if (letterA < sideR.toUpperCase().charAt(0) && sideR.toUpperCase().charAt(0) < letterZ) {
                 rightRow = sideR.charAt(1);
                 rightCol = sideR.charAt(0) - letterA;
-                sideR = findCellVal(rightRow, rightCol);
+                sideR = sheet.getCell(rightRow, rightCol);
 
             }
 
@@ -71,15 +72,13 @@ public class FormulaCell extends Cell {
 
 
         }
-        return exitVal;
+        returnable+= exitVal;
+        return returnable;
     }
 
 
-    private String findCellVal(int row ,int col ) {
 
-    return sheet.getCellVal(row,col);
 
-    }
 
 
                /* String preNum = inPart[step];

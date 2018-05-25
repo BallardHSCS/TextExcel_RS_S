@@ -3,8 +3,8 @@ import static oracle.jrockit.jfr.events.Bits.doubleValue;
 public class Spreadsheet {
     public static final int SHEET_HEIGHT = 10;
     public static final int SHEET_WIDTH = 7;
+    public String partialBFVal;
     private int letterA = 'A';
-
     private Cell[][] cellArray;
 
     public Spreadsheet() {
@@ -120,7 +120,7 @@ public class Spreadsheet {
             for (int i = 2; i <= user_input_parts.length -1; i++){
                 data += user_input_parts[i] + " ";
             }
-
+            partialBFVal = data;
             cellArray[row][col] = new FormulaCell(formulaCell.operations(data), this);
 
 
@@ -153,19 +153,7 @@ public class Spreadsheet {
     public  String getCell(int r, int c){
         return cellArray[r][c].printToSpreadsheet();
     }
-    /*public boolean isCell(String input){
-        boolean reference;
-        if(input.length() == 2) {
-            char letter = input.charAt(0);
-            int num = input.charAt(1);
-            reference = true;
-        }
 
-        return reference;
-    }*/
-    public String getCellVal(int row ,int col ) {
-        return cellArray[row][col].printToSpreadsheet();
-    }
 
 }
 
