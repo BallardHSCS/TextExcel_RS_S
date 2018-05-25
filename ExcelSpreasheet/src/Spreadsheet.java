@@ -107,7 +107,7 @@ public class Spreadsheet {
      */
     public void setCell(String input) {
         char stringChecker = '"';
-        FormulaCell formulaCell;
+        FormulaCell formulaCell = new FormulaCell(Cell.EMPTY_CELL, this);
         NumberCell number;
         if(input.contains("(")){
             String data = "";
@@ -120,7 +120,9 @@ public class Spreadsheet {
             for (int i = 2; i <= user_input_parts.length -1; i++){
                 data += user_input_parts[i] + " ";
             }
-            cellArray[row][col] = new FormulaCell(data, this);
+
+            cellArray[row][col] = new FormulaCell(formulaCell.operations(data), this);
+
 
 
         }

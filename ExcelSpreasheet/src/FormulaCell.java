@@ -14,6 +14,7 @@ public class FormulaCell extends Cell {
     private Spreadsheet sheet;
     private int letterA = 'A';
     private int letterZ = 'Z';
+    String printContents = "";
 
 
     /*TODO create a formula method that is called after a formula is interpreted in parsing

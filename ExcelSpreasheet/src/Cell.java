@@ -12,7 +12,7 @@ public class Cell {
 
 
     public static final String EMPTY_CELL = "            ";
-
+    private FormulaCell operations;
     private String contents;
 
 
@@ -28,7 +28,8 @@ public class Cell {
      * @param data it the fraction from the constructor
      **/
     public Cell(String data) {
-        contents = formatCell(data);
+
+        contents = data;
     }
 
     /**
@@ -37,7 +38,10 @@ public class Cell {
      * @return returns the contents of the formatted cell.
      */
     public String printToSpreadsheet() {
+
+
         return formatCell(contents);
+
     }
 
     /**
@@ -54,8 +58,9 @@ public class Cell {
         String formatted = input;
         int format = EMPTY_CELL.length();
         int formatdif = format - input.length();
-        if ((input.length() > format)) {
-            formatted.substring(0,(formatted.length() - formatdif));
+        if ((formatdif < 0)) {
+            System.out.println(formatdif);
+            formatted = formatted.substring(0,(formatted.length() - Math.abs(formatdif)-1));
             formatted += ">";
 
         } else if (input.length() < format) {
