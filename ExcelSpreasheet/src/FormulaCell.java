@@ -15,7 +15,7 @@ public class FormulaCell extends Cell {
     private int letterA = 'A';
     private int letterZ = 'Z';
     String printContents = "";
-
+    String contents;
 
     /*TODO create a formula method that is called after a formula is interpreted in parsing
       TODO
@@ -24,6 +24,8 @@ public class FormulaCell extends Cell {
     public FormulaCell(String data, Spreadsheet newSheet) {
         super(data);
         sheet = newSheet;
+        contents = data;
+
 
     }
 
@@ -76,7 +78,14 @@ public class FormulaCell extends Cell {
         return returnable;
     }
 
-
+    /**
+     * This method, is for accessing the contents of cells, so that it can be printed in the board.
+     *
+     * @return returns the contents of the formatted cell.
+     */
+    public String printToSpreadsheet() {
+        return formatCell(operations(contents));
+    }
 
 
 
