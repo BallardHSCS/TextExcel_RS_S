@@ -151,7 +151,7 @@ public class Spreadsheet {
         }}
 
     public  String getCell(int r, int c){
-        return cellArray[r][c].printToSpreadsheet();
+        return  cellArray[r][c].printToSpreadsheet();
     }
 
 

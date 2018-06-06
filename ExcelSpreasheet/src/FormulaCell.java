@@ -54,23 +54,29 @@ public class FormulaCell extends Cell {
         String sideR = "";
         for (int i = 2; i < inPart.length - 1; i += opLength) {
             sideR = inPart[i + 1];
+            // if statement decides whether the the side of the equation, is a cell. If it is a cell, it makes that side the cell's contents.
             if (letterA < sideL.toUpperCase().charAt(0) && sideL.toUpperCase().charAt(0) < letterZ) {
                 leftRow = sideL.charAt(1);
                 leftCol = sideL.charAt(0) - letterA;
-
-                sideL =sheet.getCell(leftRow,leftCol);
+                // this is where the program turns the reference into cell contents, and then calls it as a formula again, just in case its a formula.
+                sideL = operations(sheet.getCell(leftRow,leftCol));
 
             }
+            // if statement decides whether the the side of the equation, is a cell. If it is a cell, it makes that side the cell's contents.
             if (letterA < sideR.toUpperCase().charAt(0) && sideR.toUpperCase().charAt(0) < letterZ) {
                 rightRow = sideR.charAt(1);
                 rightCol = sideR.charAt(0) - letterA;
-                sideR = sheet.getCell(rightRow, rightCol);
+                // this is where the program turns the reference into cell contents, and then calls it as a formula again, just in case its a formula.
+                sideR =sheet.getCell(rightRow, rightCol);
+                sideR = operations(sideR.toString());
 
             }
+
 
 
             exitVal = operator(inPart[i].charAt(elementIndex), Double.parseDouble(sideL), Double.parseDouble(sideR));
             sideL = Double.toString(exitVal);
+
 
 
         }
