@@ -44,6 +44,7 @@ public class Cell {
 
     }
 
+
     /**
      * The formatCell method is for making sure that the user input is valid input.
      * It helps keep the board from crashing.
