@@ -24,7 +24,6 @@ public class FormulaCell extends Cell {
     public FormulaCell(String data, Spreadsheet newSheet) {
         super(data);
         sheet = newSheet;
-        contents = data;
 
 
     }
@@ -56,27 +55,28 @@ public class FormulaCell extends Cell {
         for (int i = 2; i < inPart.length - 1; i += opLength) {
             String sideR = inPart[i + 1];
             // if statement decides whether the the side of the equation, is a cell. If it is a cell, it makes that side the cell's contents.
-            System.out.println(sideL.toUpperCase().charAt(0) <= letterZ);
+            //System.out.println(sideL.toUpperCase().charAt(0) <= letterZ);
       /*ERROR is here */
-            if (sideL.toUpperCase().charAt(1) >= letterA && sideL.toUpperCase().charAt(1) <= letterZ)
-                leftRow = sideL.charAt(1);
-            System.out.println(leftRow);
-            leftCol = sideL.charAt(0) - (letterA - 1);
-            System.out.println(leftCol);
-            // this is where the program turns the reference into cell contents, and then calls it as a formula again, just in case its a formula.
-            sideL = operations(sheet.getCell(leftRow, leftCol));
+      if(sideL.length()==2 ||sideR.length()==2) {
+          if ((sideL.toUpperCase().charAt(1) >= letterA) && (sideL.toUpperCase().charAt(1) <= letterZ)){
+              leftRow = sideL.charAt(1);
+              System.out.println(leftRow);
+              leftCol = sideL.charAt(0) - (letterA - 1);
+              System.out.println(leftCol);
+              // this is where the program turns the reference into cell contents, and then calls it as a formula again, just in case its a formula.
+              sideL = operations(sheet.getCell(leftRow, leftCol));
+          }
+
+          // if statement decides whether the the side of the equation, is a cell. If it is a cell, it makes that side the cell's contents.
+          if ((letterA <= sideR.toUpperCase().charAt(0)) && (sideR.toUpperCase().charAt(0) <= letterZ)) {
+              rightRow = sideR.charAt(1);
+              rightCol = sideR.charAt(0) - letterA;
+              // this is where the program turns the reference into cell contents, and then calls it as a formula again, just in case its a formula.
+              sideR = operations(sheet.getCell(rightRow, rightCol));
 
 
-            // if statement decides whether the the side of the equation, is a cell. If it is a cell, it makes that side the cell's contents.
-            if (letterA < sideR.toUpperCase().charAt(0) && sideR.toUpperCase().charAt(0) < letterZ) {
-                rightRow = sideR.charAt(1);
-                rightCol = sideR.charAt(0) - letterA;
-                // this is where the program turns the reference into cell contents, and then calls it as a formula again, just in case its a formula.
-                sideR = operations(sheet.getCell(rightRow, rightCol));
-
-
-            }
-
+          }
+      }
 
 
             exitVal = operator(inPart[i].charAt(elementIndex), Double.parseDouble(sideL), Double.parseDouble(sideR));

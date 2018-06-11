@@ -120,8 +120,7 @@ public class Spreadsheet {
             for (int i = 2; i <= user_input_parts.length -1; i++){
                 data += user_input_parts[i] + " ";
             }
-            partialBFVal = data;
-            cellArray[row][col] = new FormulaCell(formulaCell.operations(data), this);
+            cellArray[row][col] = new FormulaCell(data, this);
 
 
 
