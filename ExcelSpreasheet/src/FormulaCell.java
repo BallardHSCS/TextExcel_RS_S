@@ -1,9 +1,8 @@
 /**
-* This is the FormulaCell class.
-* It extends from the Cell class.
-* Depending on situation it should store the
-*
-* */
+ * This is the FormulaCell class.
+ * It extends from the Cell class.
+ * Depending on situation it should store the
+ */
 
 
 import com.sun.org.apache.xpath.internal.functions.FuncSubstring;
@@ -35,10 +34,28 @@ public class FormulaCell extends Cell {
 
     }
 
-    /**
-     * @param contents
-     * @return exitVal
-     */
+    public Double CellCheck(String checkString) {
+        if ((checkString.toUpperCase().charAt(0) >= letterA) && (checkString.toUpperCase().charAt(0) <= letterZ)) {
+           int Row = checkString.charAt(1);
+            System.out.println(Row);
+           int Col = checkString.charAt(0) - (letterA - 1);
+            System.out.println(Col);
+            // this is where the program turns the reference into cell contents, and then calls it as a formula again, just in case its a formula.
+            if(checkString.contains("(")){
+                operations(sheet.getCell(Row, Col));
+            }
+
+
+
+        }
+        return Double.parseDouble(checkString);
+    }
+
+        /**
+         * @param contents
+         * @return exitVal
+         */
+
     public String operations(String contents) {
         String returnable = "";
         int leftRow = 0;
@@ -51,43 +68,46 @@ public class FormulaCell extends Cell {
         int elementIndex = 0;
         String[] inPart = contents.split(" ");
         String sideL = inPart[1];
+        if (sideL.length() == 2) {
+            sideL = CellCheck(sideL);
+
+        }
+
 
         for (int i = 2; i < inPart.length - 1; i += opLength) {
             String sideR = inPart[i + 1];
+
+            /*if (sideL.length() == 2 || sideR.length() == 2) {
+                if ((sideL.toUpperCase().charAt(1) >= letterA) && (sideL.toUpperCase().charAt(1) <= letterZ)) {
+                    leftRow = sideL.charAt(1);
+                    System.out.println(leftRow);
+                    leftCol = sideL.charAt(0) - (letterA - 1);
+                    System.out.println(leftCol);
+                    // this is where the program turns the reference into cell contents, and then calls it as a formula again, just in case its a formula.
+                    sideL = operations(sheet.getCell(leftRow, leftCol));*/
+
+
             // if statement decides whether the the side of the equation, is a cell. If it is a cell, it makes that side the cell's contents.
-            //System.out.println(sideL.toUpperCase().charAt(0) <= letterZ);
-      /*ERROR is here */
-      if(sideL.length()==2 ||sideR.length()==2) {
-          if ((sideL.toUpperCase().charAt(1) >= letterA) && (sideL.toUpperCase().charAt(1) <= letterZ)){
-              leftRow = sideL.charAt(1);
-              System.out.println(leftRow);
-              leftCol = sideL.charAt(0) - (letterA - 1);
-              System.out.println(leftCol);
-              // this is where the program turns the reference into cell contents, and then calls it as a formula again, just in case its a formula.
-              sideL = operations(sheet.getCell(leftRow, leftCol));
-          }
-
-          // if statement decides whether the the side of the equation, is a cell. If it is a cell, it makes that side the cell's contents.
-          if ((letterA <= sideR.toUpperCase().charAt(0)) && (sideR.toUpperCase().charAt(0) <= letterZ)) {
-              rightRow = sideR.charAt(1);
-              rightCol = sideR.charAt(0) - letterA;
-              // this is where the program turns the reference into cell contents, and then calls it as a formula again, just in case its a formula.
-              sideR = operations(sheet.getCell(rightRow, rightCol));
+            /*if ((letterA <= sideR.toUpperCase().charAt(0)) && (sideR.toUpperCase().charAt(0) <= letterZ)) {
+                rightRow = sideR.charAt(1);
+                rightCol = sideR.charAt(0) - letterA;
+                // this is where the program turns the reference into cell contents, and then calls it as a formula again, just in case its a formula.
+                sideR = operations(sheet.getCell(rightRow, rightCol));*/
 
 
-          }
-      }
 
 
-            exitVal = operator(inPart[i].charAt(elementIndex), Double.parseDouble(sideL), Double.parseDouble(sideR));
-            sideL = Double.toString(exitVal);
+        exitVal = operator(inPart[i].charAt(elementIndex), Double.parseDouble(sideL), Double.parseDouble(sideR));
+        sideL = Double.toString(exitVal);
+
 
 
 
         }
-        returnable+= exitVal;
+        returnable +=exitVal;
         return returnable;
     }
+
 
 
     /**
@@ -158,22 +178,22 @@ public class FormulaCell extends Cell {
         String firstCell = parseForCells[2];
         char letter = firstCell.charAt(0);
         letter = Character.toUpperCase(letter);
-        int row = Integer.parseInt(firstCell.substring(1))-1;
+        int row = Integer.parseInt(firstCell.substring(1)) - 1;
         int col = letter - letterA;
 
 
         String secondCell = parseForCells[4];
         char letterTwo = secondCell.charAt(0);
         letterTwo = Character.toUpperCase(letterTwo);
-        int rowTwo = Integer.parseInt(secondCell.substring(1))-1;
+        int rowTwo = Integer.parseInt(secondCell.substring(1)) - 1;
         int colTwo = letterTwo - letterA;
-        for(int r = row; r < rowTwo; r++){
-            for(int c = col; c < colTwo; c++){
+        for (int r = row; r < rowTwo; r++) {
+            for (int c = col; c < colTwo; c++) {
                 dubs.add(Double.parseDouble(sheet.getCell(r, c)));
             }
         }
 
-        return sum(dubs)/ dubs.size();
+        return sum(dubs) / dubs.size();
     }
 
     /*public void sum(int numCells){
@@ -182,33 +202,33 @@ public class FormulaCell extends Cell {
     cellsAdd += ;
 }
         }*/
-    private double sum( ArrayList<Double> dubs) {
+    private double sum(ArrayList<Double> dubs) {
         int total = 0;
-        for(int i = 0; i < dubs.size(); i ++){
+        for (int i = 0; i < dubs.size(); i++) {
             total += dubs.get(i);
         }
 
         return total;
     }
 
-    public double sum(String input){
+    public double sum(String input) {
         String[] parseForCells = input.split(" ");
         ArrayList<Double> dubs = new ArrayList<>();
 
         String firstCell = parseForCells[2];
         char letter = firstCell.charAt(0);
         letter = Character.toUpperCase(letter);
-        int row = Integer.parseInt(firstCell.substring(1))-1;
+        int row = Integer.parseInt(firstCell.substring(1)) - 1;
         int col = letter - letterA;
 
 
         String secondCell = parseForCells[4];
         char letterTwo = secondCell.charAt(0);
         letterTwo = Character.toUpperCase(letterTwo);
-        int rowTwo = Integer.parseInt(secondCell.substring(1))-1;
+        int rowTwo = Integer.parseInt(secondCell.substring(1)) - 1;
         int colTwo = letterTwo - letterA;
-        for(int r = row; r < rowTwo; r++){
-            for(int c = col; c < colTwo; c++){
+        for (int r = row; r < rowTwo; r++) {
+            for (int c = col; c < colTwo; c++) {
                 dubs.add(Double.parseDouble(sheet.getCell(r, c)));
             }
         }
@@ -216,11 +236,11 @@ public class FormulaCell extends Cell {
         return sum(dubs);
     }
 
-public double getNumCell(String input) {
-double cellVal = 0;
+    public double getNumCell(String input) {
+        double cellVal = 0;
 
-return cellVal;
-}
+        return cellVal;
+    }
 
     //TODO Checkpoint 6
     public void order() {
