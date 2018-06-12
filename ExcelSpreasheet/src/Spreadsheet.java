@@ -22,6 +22,10 @@ public class Spreadsheet {
         }
     }
 
+    /**
+     * @todo check data going into the toString. Any nulls?
+     * @return
+     */
     public String toString() {
         String sheetPrint = "";
         String nextRow = "------------+------------+------------+------------+------------+------------+------------+------------+\n";

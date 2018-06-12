@@ -34,7 +34,7 @@ public class FormulaCell extends Cell {
 
     }
 
-    public Double CellCheck(String checkString) {
+    public String CellCheck(String checkString) {
         if ((checkString.toUpperCase().charAt(0) >= letterA) && (checkString.toUpperCase().charAt(0) <= letterZ)) {
            int Row = checkString.charAt(1);
             System.out.println(Row);
@@ -48,7 +48,7 @@ public class FormulaCell extends Cell {
 
 
         }
-        return Double.parseDouble(checkString);
+        return checkString;
     }
 
         /**
