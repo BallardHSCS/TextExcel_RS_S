@@ -23,7 +23,7 @@ public class TextExcel {
             if (user_input.equalsIgnoreCase("exit")) {
                 done = true;
             } else if (user_input.equalsIgnoreCase("print")) {
-                System.out.println(sheet);
+/*ERROR*/                System.out.println(sheet);
             } else if (user_input.contains("clear")) {
                 sheet.clear(user_input);
             } else if (user_input.contains(" = ")) {

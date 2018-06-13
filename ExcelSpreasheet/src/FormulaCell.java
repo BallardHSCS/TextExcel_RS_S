@@ -58,54 +58,29 @@ public class FormulaCell extends Cell {
 
     public String operations(String contents) {
         String returnable = "";
-        int leftRow = 0;
-        int leftCol = 0;
-        int rightRow = 0;
-        int rightCol = 0;
-        double exitVal = 0;
+        String exitVal = "";
 
         int opLength = 2;
         int elementIndex = 0;
-        String[] inPart = contents.split(" ");
+/*ERROR*/String[] inPart = contents.split(" ");
         String sideL = inPart[1];
         if (sideL.length() == 2) {
-            sideL = CellCheck(sideL);
+          //  sideL = CellCheck(sideL);
 
-        }
-
+            }
 
         for (int i = 2; i < inPart.length - 1; i += opLength) {
-            String sideR = inPart[i + 1];
-
-            /*if (sideL.length() == 2 || sideR.length() == 2) {
-                if ((sideL.toUpperCase().charAt(1) >= letterA) && (sideL.toUpperCase().charAt(1) <= letterZ)) {
-                    leftRow = sideL.charAt(1);
-                    System.out.println(leftRow);
-                    leftCol = sideL.charAt(0) - (letterA - 1);
-                    System.out.println(leftCol);
-                    // this is where the program turns the reference into cell contents, and then calls it as a formula again, just in case its a formula.
-                    sideL = operations(sheet.getCell(leftRow, leftCol));*/
-
-
-            // if statement decides whether the the side of the equation, is a cell. If it is a cell, it makes that side the cell's contents.
-            /*if ((letterA <= sideR.toUpperCase().charAt(0)) && (sideR.toUpperCase().charAt(0) <= letterZ)) {
-                rightRow = sideR.charAt(1);
-                rightCol = sideR.charAt(0) - letterA;
-                // this is where the program turns the reference into cell contents, and then calls it as a formula again, just in case its a formula.
-                sideR = operations(sheet.getCell(rightRow, rightCol));*/
-
-
+            String sideR = (inPart[i + 1]);
 
 
         exitVal = operator(inPart[i].charAt(elementIndex), Double.parseDouble(sideL), Double.parseDouble(sideR));
-        sideL = Double.toString(exitVal);
+        sideL = exitVal;
 
 
 
 
         }
-        returnable +=exitVal;
-        return returnable;
+        return exitVal;
     }
 
 
@@ -116,7 +91,7 @@ public class FormulaCell extends Cell {
      * @return returns the contents of the formatted cell.
      */
     public String printToSpreadsheet() {
-        return formatCell(operations(contents));
+/*ERROR*/        return formatCell(operations(contents));
     }
 
 
@@ -142,7 +117,7 @@ public class FormulaCell extends Cell {
      * @return
      */
     // ( 1 + 3 * 9 )
-    private double operator(char in, double num1, double num2) {
+    private String operator(char in, double num1, double num2) {
         double newNum = -1;
         if (in == '+') {
             newNum = (num1 + num2);
@@ -155,7 +130,7 @@ public class FormulaCell extends Cell {
         } else {
             System.out.println("Invalid Operator");
         }
-        return newNum;
+        return Double.toString(newNum);
     }
         /*
         * Create a for loop here that goes from the [1] position to .length -1

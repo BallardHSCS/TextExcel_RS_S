@@ -3,7 +3,6 @@ import static oracle.jrockit.jfr.events.Bits.doubleValue;
 public class Spreadsheet {
     public static final int SHEET_HEIGHT = 10;
     public static final int SHEET_WIDTH = 7;
-    public String partialBFVal;
     private int letterA = 'A';
     private Cell[][] cellArray;
 
@@ -38,7 +37,7 @@ public class Spreadsheet {
             }
             for (int cPos = 0; cPos < SHEET_WIDTH; cPos++) {
 
-                sheetPrint += cellArray[rPos][cPos].printToSpreadsheet();
+/*ERROR*/                sheetPrint += cellArray[rPos][cPos].printToSpreadsheet();
                 sheetPrint += "|";
 
             }

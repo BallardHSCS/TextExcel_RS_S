@@ -15,7 +15,6 @@ public class Cell {
     private FormulaCell operations;
     private String contents;
 
-
     public Cell() {
         contents = EMPTY_CELL;
 
