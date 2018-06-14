@@ -63,50 +63,11 @@ public class FormulaCell extends Cell {
         int rightRow = 0;
         int rightCol = 0;
         double exitVal = 0;
-
-        int opLength = 2;
-        int elementIndex = 0;
-        String[] inPart = contents.split(" ");
-        String sideL = inPart[1];
-        if (sideL.length() == 2) {
-            sideL = CellCheck(sideL);
-
-        }
-
-
-        for (int i = 2; i < inPart.length - 1; i += opLength) {
-            String sideR = inPart[i + 1];
-
-            /*if (sideL.length() == 2 || sideR.length() == 2) {
-                if ((sideL.toUpperCase().charAt(1) >= letterA) && (sideL.toUpperCase().charAt(1) <= letterZ)) {
-                    leftRow = sideL.charAt(1);
-                    System.out.println(leftRow);
-                    leftCol = sideL.charAt(0) - (letterA - 1);
-                    System.out.println(leftCol);
-                    // this is where the program turns the reference into cell contents, and then calls it as a formula again, just in case its a formula.
-                    sideL = operations(sheet.getCell(leftRow, leftCol));*/
-
-
-            // if statement decides whether the the side of the equation, is a cell. If it is a cell, it makes that side the cell's contents.
-            /*if ((letterA <= sideR.toUpperCase().charAt(0)) && (sideR.toUpperCase().charAt(0) <= letterZ)) {
-                rightRow = sideR.charAt(1);
-                rightCol = sideR.charAt(0) - letterA;
-                // this is where the program turns the reference into cell contents, and then calls it as a formula again, just in case its a formula.
-                sideR = operations(sheet.getCell(rightRow, rightCol));*/
+    return returnable;}
 
 
 
 
-        exitVal = operator(inPart[i].charAt(elementIndex), Double.parseDouble(sideL), Double.parseDouble(sideR));
-        sideL = Double.toString(exitVal);
-
-
-
-
-        }
-        returnable +=exitVal;
-        return returnable;
-    }
 
 
 
@@ -242,46 +203,7 @@ public class FormulaCell extends Cell {
         return cellVal;
     }
 
-    //TODO Checkpoint 6
-    public void order() {
-    }
 
-    public void reverseOrder() {
-    }
-
-    public void sorter(int[] a) {
-        for (int i = 0; i < a.length; i++) {
-            int minPos = minimumPosition(a, i);
-            swap(a, minPos, i);
-        }
-    }
-
-
-    private static int minimumPosition(int a[], int from) {
-        int minPos = from;
-        for (int i = from + 1; i < a.length; i++) {
-            if (a[i] < a[minPos]) {
-                minPos = i;
-            }
-        }
-        return minPos;
-    }
-
-    public static int linearSearch(int[] a, int x) {
-        for (int i = 0; i < a.length; i++) {
-            if (a[i] == x) {
-                return i;
-            }
-        }
-        return -1;
-
-    }
-
-    private static void swap(int a[], int i, int j) {
-        int temp = a[i];
-        a[i] = a[j];
-        a[j] = temp;
-    }
 }
 
 
