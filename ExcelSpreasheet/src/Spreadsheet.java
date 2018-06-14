@@ -25,7 +25,7 @@ public class Spreadsheet {
      * @todo check data going into the toString. Any nulls?
      * @return
      */
-    public String toString() {
+   /*ERROR*/ public String toString() {
         String sheetPrint = "";
         String nextRow = "------------+------------+------------+------------+------------+------------+------------+------------+\n";
         sheetPrint += "            |     A      |     B      |     C      |     D      |     E      |     F      |     G      |\n" + nextRow;

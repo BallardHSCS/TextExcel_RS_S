@@ -43,7 +43,9 @@ public class Cell {
 
 
     }
-
+    public String GetContents(){
+        return this.contents;
+    }
 
     /**
      * The formatCell method is for making sure that the user input is valid input.

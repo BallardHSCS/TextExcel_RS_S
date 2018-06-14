@@ -13,8 +13,11 @@ public class FormulaCell extends Cell {
     private Spreadsheet sheet;
     private int letterA = 'A';
     private int letterZ = 'Z';
-    String printContents = "";
-    String contents;
+
+String contents = GetContents();
+
+
+
 
     /*TODO create a formula method that is called after a formula is interpreted in parsing
       TODO
@@ -35,11 +38,10 @@ public class FormulaCell extends Cell {
     }
 
     public String CellCheck(String checkString) {
+        String[] input = checkString.split("");
         if ((checkString.toUpperCase().charAt(0) >= letterA) && (checkString.toUpperCase().charAt(0) <= letterZ)) {
-           int Row = checkString.charAt(1);
-            System.out.println(Row);
-           int Col = checkString.charAt(0) - (letterA - 1);
-            System.out.println(Col);
+           int Row =(int) Double.parseDouble(input[1]);
+           int Col =(int) Double.parseDouble(input[0]);
             // this is where the program turns the reference into cell contents, and then calls it as a formula again, just in case its a formula.
             if(checkString.contains("(")){
                 operations(sheet.getCell(Row, Col));
@@ -57,6 +59,7 @@ public class FormulaCell extends Cell {
          */
 
     public String operations(String contents) {
+        this.contents = contents;
         String returnable = "";
         String exitVal = "";
 
@@ -64,13 +67,12 @@ public class FormulaCell extends Cell {
         int elementIndex = 0;
 /*ERROR*/String[] inPart = contents.split(" ");
         String sideL = inPart[1];
-        if (sideL.length() == 2) {
-          //  sideL = CellCheck(sideL);
+        sideL = CellCheck(sideL);
 
-            }
+
 
         for (int i = 2; i < inPart.length - 1; i += opLength) {
-            String sideR = (inPart[i + 1]);
+            String sideR = CellCheck(inPart[i + 1]);
 
 
         exitVal = operator(inPart[i].charAt(elementIndex), Double.parseDouble(sideL), Double.parseDouble(sideR));
