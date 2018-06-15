@@ -13,6 +13,9 @@ public class Cell {
 
     public static final String EMPTY_CELL = "            ";
     private FormulaCell operations;
+
+
+
     private String contents;
 
 
@@ -43,6 +46,11 @@ public class Cell {
         return formatCell(contents);
 
 
+    }
+
+    public String returnToSpreadsheet(){
+
+        return contents;
     }
 
 
@@ -88,6 +96,11 @@ public class Cell {
 
         return formatted;
     }
+
+    public String getContents() {
+        return contents;
+    }
+
 
 
 

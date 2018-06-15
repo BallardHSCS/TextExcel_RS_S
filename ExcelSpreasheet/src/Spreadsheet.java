@@ -95,7 +95,7 @@ public class Spreadsheet {
         letter = Character.toUpperCase(letter);
         int row = Integer.parseInt(input.substring(1))-1;
         int col = letter - letterA;
-        String cellprint = cellArray[row][col].printToSpreadsheet();
+        String cellprint = cellArray[row][col].returnToSpreadsheet();
         return cellprint;
     }
 
@@ -120,6 +120,7 @@ public class Spreadsheet {
             for (int i = 2; i <= user_input_parts.length -1; i++){
                 data += user_input_parts[i] + " ";
             }
+            ;
             cellArray[row][col] = new FormulaCell(data, this);
 
 

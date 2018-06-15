@@ -13,8 +13,7 @@ public class FormulaCell extends Cell {
     private Spreadsheet sheet;
     private int letterA = 'A';
     private int letterZ = 'Z';
-    String printContents = "";
-    String contents;
+
 
     /*TODO create a formula method that is called after a formula is interpreted in parsing
       TODO
@@ -58,14 +57,30 @@ public class FormulaCell extends Cell {
 
     public String operations(String contents) {
         String returnable = "";
-        int leftRow = 0;
-        int leftCol = 0;
-        int rightRow = 0;
-        int rightCol = 0;
-        double exitVal = 0;
-    return returnable;}
+        String exitVal = "";
+
+        int opLength = 2;
+        int elementIndex = 0;
+        String[] inPart = contents.split(" ");
+        String sideL = inPart[1];
+
+        for (int i = 2; i < inPart.length - 1; i += opLength) {
+            String sideR = (inPart[i + 1]);
 
 
+            /* Reavaluate Operation with seperate data set from recovered sheet data */exitVal = Double.toString(operator(inPart[i].charAt(elementIndex), Double.parseDouble(sideL), Double.parseDouble(sideR)));
+            sideL = exitVal;
+
+
+
+
+        }
+        return exitVal;
+    }
+
+    /*
+    * Change Operation updates to work in tandem with references, get value and record operations with stated value under precondition of proper cell reference
+    * */
 
 
 
@@ -77,7 +92,7 @@ public class FormulaCell extends Cell {
      * @return returns the contents of the formatted cell.
      */
     public String printToSpreadsheet() {
-        return formatCell(operations(contents));
+        return formatCell(operations(getContents()));
     }
 
 

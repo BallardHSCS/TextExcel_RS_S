@@ -45,10 +45,7 @@ public class TextExcel {
                 System.out.println(help());
             }
             else {
-                char letter = user_input.toUpperCase().charAt(0);
-                int col = letter - letterA;
-                int row = Integer.parseInt(user_input.substring(1));
-                System.out.println(sheet.getCell(row, col));
+                System.out.println(sheet.printCell(user_input));
             }
 
         } while (!done);
