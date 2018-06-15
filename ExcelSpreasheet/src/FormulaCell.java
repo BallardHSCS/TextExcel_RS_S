@@ -13,8 +13,9 @@ public class FormulaCell extends Cell {
     private Spreadsheet sheet;
     private int letterA = 'A';
     private int letterZ = 'Z';
+    private int num1 = '1';
 
-String contents = GetContents();
+    String contents = GetContents();
 
 
 
@@ -40,23 +41,23 @@ String contents = GetContents();
     public String CellCheck(String checkString) {
         String[] input = checkString.split("");
         if ((checkString.toUpperCase().charAt(0) >= letterA) && (checkString.toUpperCase().charAt(0) <= letterZ)) {
-           int Row =(int) Double.parseDouble(input[1]);
-           int Col =(int) Double.parseDouble(input[0]);
+            int Row = (int) Double.parseDouble(input[1])-1;
+            int Col = checkString.charAt(0) - (letterA);
+            checkString = sheet.getCell(Row ,Col);
             // this is where the program turns the reference into cell contents, and then calls it as a formula again, just in case its a formula.
-            if(checkString.contains("(")){
+            if (checkString.contains("(")) {
                 operations(sheet.getCell(Row, Col));
             }
-
 
 
         }
         return checkString;
     }
 
-        /**
-         * @param contents
-         * @return exitVal
-         */
+    /**
+     * @param contents
+     * @return exitVal
+     */
 
     public String operations(String contents) {
         this.contents = contents;
@@ -65,26 +66,24 @@ String contents = GetContents();
 
         int opLength = 2;
         int elementIndex = 0;
-/*ERROR*/String[] inPart = contents.split(" ");
+/*ERROR*/
+        String[] inPart = contents.split(" ");
         String sideL = inPart[1];
         sideL = CellCheck(sideL);
 
 
-
         for (int i = 2; i < inPart.length - 1; i += opLength) {
+            inPart[i-1] = sideL;
             String sideR = CellCheck(inPart[i + 1]);
 
 
-        exitVal = operator(inPart[i].charAt(elementIndex), Double.parseDouble(sideL), Double.parseDouble(sideR));
-        sideL = exitVal;
-
-
+            exitVal = operator(inPart[i].charAt(elementIndex), Double.parseDouble(sideL), Double.parseDouble(sideR));
+            sideL = exitVal;
 
 
         }
         return exitVal;
     }
-
 
 
     /**
@@ -93,7 +92,8 @@ String contents = GetContents();
      * @return returns the contents of the formatted cell.
      */
     public String printToSpreadsheet() {
-/*ERROR*/        return formatCell(operations(contents));
+/*ERROR*/
+        return formatCell(operations(contents));
     }
 
 
