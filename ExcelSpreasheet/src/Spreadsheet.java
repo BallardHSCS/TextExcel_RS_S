@@ -156,13 +156,46 @@ public class Spreadsheet {
         return  cellArray[r][c].printToSpreadsheet();
     }
 
-
+public void order() {
 }
 
-//TODO: Fix Format Cell
-//TODO: Fix print and calls of formulas with the operation method
-//TODO Finish recursion and cell references
+    public void reverseOrder() {
+    }
 
+    public void sorter(int[] a) {
+        for (int i = 0; i < a.length; i++) {
+            int minPos = minimumPosition(a, i);
+            swap(a, minPos, i);
+        }
+    }
+
+
+    private static int minimumPosition(int a[], int from) {
+        int minPos = from;
+        for (int i = from + 1; i < a.length; i++) {
+            if (a[i] < a[minPos]) {
+                minPos = i;
+            }
+        }
+        return minPos;
+    }
+
+    public static int linearSearch(int[] a, int x) {
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] == x) {
+                return i;
+            }
+        }
+        return -1;
+
+    }
+
+    private static void swap(int a[], int i, int j) {
+        int temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
+    }
+}
 /*
 * Submit 5 and then we will use search and sort algorithms with ranges in order to properly reference and use sorting
 * Push 6 than final
