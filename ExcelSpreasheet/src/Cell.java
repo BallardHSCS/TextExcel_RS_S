@@ -43,6 +43,12 @@ public class Cell {
 
 
     }
+
+    public String returnToSpreadsheet(){
+
+        return contents;
+    }
+
     public String GetContents(){
         return this.contents;
     }
