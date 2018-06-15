@@ -38,16 +38,22 @@ public class FormulaCell extends Cell {
 
     }
 
+    /**
+     *
+     * @param checkString
+     * @return returns cell contents, as a string.
+     */
+
     public String CellCheck(String checkString) {
         String[] input = checkString.split("");
         if ((checkString.toUpperCase().charAt(0) >= letterA) && (checkString.toUpperCase().charAt(0) <= letterZ)) {
             int Row = (int) Double.parseDouble(input[1])-1;
             int Col = checkString.charAt(0) - (letterA);
-            checkString = sheet.getCell(Row ,Col);
-            // this is where the program turns the reference into cell contents, and then calls it as a formula again, just in case its a formula.
             if (checkString.contains("(")) {
                 operations(sheet.getCell(Row, Col));
             }
+            checkString = sheet.getCell(Row ,Col);
+            // this is where the program turns the reference into cell contents, and then calls it as a formula again, just in case its a formula.
 
 
         }
@@ -56,7 +62,7 @@ public class FormulaCell extends Cell {
 
     /**
      * @param contents
-     * @return exitVal
+     * @return exitVal as a string
      */
 
     public String operations(String contents) {
@@ -148,6 +154,12 @@ public class FormulaCell extends Cell {
    *Recursion is an important aspect
    * There may be some documentation in the google docs
    * */
+
+    /**
+     *
+     * @param input
+     * @return average of input, as a double.
+     */
     public double average(String input) {
         String[] parseForCells = input.split(" ");
         ArrayList<Double> dubs = new ArrayList<>();
@@ -179,6 +191,12 @@ public class FormulaCell extends Cell {
     cellsAdd += ;
 }
         }*/
+
+    /**
+     *
+     * @param dubs as an array list
+     * @return sum of the input, as a double.
+     */
     private double sum(ArrayList<Double> dubs) {
         int total = 0;
         for (int i = 0; i < dubs.size(); i++) {
@@ -188,6 +206,11 @@ public class FormulaCell extends Cell {
         return total;
     }
 
+    /**
+     *
+     * @param input as a string
+     * @return sum of numbers, as a double
+     */
     public double sum(String input) {
         String[] parseForCells = input.split(" ");
         ArrayList<Double> dubs = new ArrayList<>();

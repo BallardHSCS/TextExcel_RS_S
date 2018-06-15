@@ -5,7 +5,11 @@
 * */
 
 public class NumberCell extends Cell{
-
+    /**
+     *
+     * @param data
+     * number cell constructor
+     */
     public NumberCell(String data){
     super(data);
     }

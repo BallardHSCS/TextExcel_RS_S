@@ -55,6 +55,10 @@ public class TextExcel {
         command_input.close();
     }
 
+    /**
+     * Gets run, if the user types in "help"
+     * @return Help in the form of various different strings.
+     */
     private static String help() {
         String helper = "If you seek to exit the program, type 'exit'\n" +
                 "For adding to the Spreadsheet, type commands in the format of 'A3 = Fool' in order to put data on the spreadsheet \n" +

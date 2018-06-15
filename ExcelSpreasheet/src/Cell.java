@@ -15,6 +15,10 @@ public class Cell {
     private FormulaCell operations;
     private String contents;
 
+    /**
+     * simple cell constructor.
+     * mostly used in spreadsheet
+     */
     public Cell() {
         contents = EMPTY_CELL;
 
@@ -44,11 +48,20 @@ public class Cell {
 
     }
 
+    /**
+     *
+     * @return returns contents, in the form of a string.
+     */
     public String returnToSpreadsheet(){
 
         return contents;
     }
 
+    /**
+     *
+     * @return contents in th form of a string
+     * this is a special method for the FormulaCell class, to get contents, for things like cell references.
+     */
     public String GetContents(){
         return this.contents;
     }
@@ -58,7 +71,7 @@ public class Cell {
      * It helps keep the board from crashing.
      *
      * @param input requires user input in a string
-     * @return returnes a new formatted cell
+     * @return returns a new formatted cell
      */
 
     //TODO: Make it so that if @param input.length() > 12, the cell will not be accepted and a message will be printed to the user

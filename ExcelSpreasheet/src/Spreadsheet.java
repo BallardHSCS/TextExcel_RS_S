@@ -6,6 +6,9 @@ public class Spreadsheet {
     private int letterA = 'A';
     private Cell[][] cellArray;
 
+    /**
+     * construct an empty spreadsheet
+     */
     public Spreadsheet() {
         cellArray = new Cell[SHEET_HEIGHT][SHEET_WIDTH];
         for (int rPos = 0; rPos < SHEET_HEIGHT; rPos++) {
@@ -23,7 +26,7 @@ public class Spreadsheet {
 
     /**
      * @todo check data going into the toString. Any nulls?
-     * @return
+     * @return prints out the entire sheet
      */
    /*ERROR*/ public String toString() {
         String sheetPrint = "";
@@ -49,7 +52,11 @@ public class Spreadsheet {
         return sheetPrint;
     }
 
-
+    /**
+     *
+     * @param type
+     * clears the sheet.
+     */
 
     public void clear(String type) {
         if (type.contains(" ")) {
@@ -90,7 +97,11 @@ public class Spreadsheet {
         }
     }
 
-
+    /**
+     *
+     * @param input
+     * @return print out the cell, int the form of a string
+     */
 
     public String printCell(String input){
 
@@ -169,7 +180,12 @@ public void order() {
         }
     }
 
-
+    /**
+     *
+     * @param a
+     * @param from
+     * @return returns the minimum position
+     */
     private static int minimumPosition(int a[], int from) {
         int minPos = from;
         for (int i = from + 1; i < a.length; i++) {
