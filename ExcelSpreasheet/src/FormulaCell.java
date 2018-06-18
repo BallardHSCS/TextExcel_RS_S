@@ -49,6 +49,7 @@ public class FormulaCell extends Cell {
         if ((checkString.toUpperCase().charAt(0) >= letterA) && (checkString.toUpperCase().charAt(0) <= letterZ)) {
             int Row = (int) Double.parseDouble(input[1])-1;
             int Col = checkString.charAt(0) - (letterA);
+            checkString = sheet.getCell(Row ,Col);
             if (checkString.contains("(")) {
                 operations(sheet.getCell(Row, Col));
             }
@@ -74,6 +75,9 @@ public class FormulaCell extends Cell {
         int elementIndex = 0;
 /*ERROR*/
         String[] inPart = contents.split(" ");
+        if( inPart.length <= 3){
+           exitVal+= Double.parseDouble(CellCheck(inPart[1]));
+        }
         String sideL = inPart[1];
         sideL = CellCheck(sideL);
 
@@ -101,7 +105,6 @@ public class FormulaCell extends Cell {
 /*ERROR*/
         return formatCell(operations(contents));
     }
-
 
 
 

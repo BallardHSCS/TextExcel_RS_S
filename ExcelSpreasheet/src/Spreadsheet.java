@@ -60,21 +60,24 @@ public class Spreadsheet {
 
     public void clear(String type) {
         if (type.contains(" ")) {
-            if(type.contains("-")){
+/**/            if(type.contains("-")){
                 String[] range_parts = type.split(" ");
-                String firstCell = range_parts[2];
-                char letter = firstCell.charAt(0);
-                letter = Character.toUpperCase(letter);
+                String firstCell = range_parts[1];
+                char letter = Character.toUpperCase(firstCell.charAt(0));
                 int row = Integer.parseInt(firstCell.substring(1))-1;
                 int col = letter - letterA;
 
 
-                String secondCell = range_parts[4];
-                char letterTwo = secondCell.charAt(0);
-                letterTwo = Character.toUpperCase(letterTwo);
+                String secondCell = range_parts[3];
+                char letterTwo = Character.toUpperCase(secondCell.charAt(0));
                 int rowTwo = Integer.parseInt(secondCell.substring(1))-1;
                 int colTwo = letterTwo - letterA;
 
+                for(int r = row; r < rowTwo; r ++){
+                    for(int c = col; c < colTwo; c ++){
+                        cellArray[row][col] = new Cell();
+                    }
+      /**/          }
 
             }
             else{
@@ -124,21 +127,29 @@ public class Spreadsheet {
         FormulaCell formulaCell = new FormulaCell(Cell.EMPTY_CELL, this);
         NumberCell number;
         if(input.contains("(")){
-            String data = "";
-            String[] user_input_parts = input.split(" ");
-            String cellName = user_input_parts[0];
-            char letter = cellName.charAt(0);
-            letter = Character.toUpperCase(letter);
-            int row = Integer.parseInt(cellName.substring(1)) - 1;
-            int col = letter - letterA;
-            for (int i = 2; i <= user_input_parts.length -1; i++){
-                data += user_input_parts[i] + " ";
+            if(input.contains("sum")){
+                String[] rangefinder = input.split(" ");
             }
-            cellArray[row][col] = new FormulaCell(data, this);
+            else if(input.contains("avg")){
+                String[] rangefinder = input.split(" ");
+
+            }
+            else {
+
+                String data = "";
+                String[] user_input_parts = input.split(" ");
+                String cellName = user_input_parts[0];
+                char letter = cellName.charAt(0);
+                letter = Character.toUpperCase(letter);
+                int row = Integer.parseInt(cellName.substring(1)) - 1;
+                int col = letter - letterA;
+                for (int i = 2; i <= user_input_parts.length - 1; i++) {
+                    data += user_input_parts[i] + " ";
+                }
+                cellArray[row][col] = new FormulaCell(data, this);
 
 
-
-        }
+            }}
         else if(input.contains(stringChecker + "")){
             String[] user_input_parts = input.split(" ");
             String cellName = user_input_parts[0];

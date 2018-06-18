@@ -67,6 +67,13 @@ public class TextExcel {
                 ;
         return helper;
     }
+    /*public String CellCheck(String checkString) {
+        String[] input = checkString.split("");
+        if ((checkString.toUpperCase().charAt(0) >= letterA) && (checkString.toUpperCase().charAt(0) <= letterZ)) {
+            int Row = (int) Double.parseDouble(input[1])-1;
+            int Col = checkString.charAt(0) - (letterA);
+
+            checkString = sheet.getCell(Row ,Col);*/
 
 }
 
