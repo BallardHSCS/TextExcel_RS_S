@@ -127,14 +127,6 @@ public class Spreadsheet {
         FormulaCell formulaCell = new FormulaCell(Cell.EMPTY_CELL, this);
         NumberCell number;
         if(input.contains("(")){
-            if(input.contains("sum")){
-                String[] rangefinder = input.split(" ");
-            }
-            else if(input.contains("avg")){
-                String[] rangefinder = input.split(" ");
-
-            }
-            else {
 
                 String data = "";
                 String[] user_input_parts = input.split(" ");
@@ -149,7 +141,7 @@ public class Spreadsheet {
                 cellArray[row][col] = new FormulaCell(data, this);
 
 
-            }}
+            }
         else if(input.contains(stringChecker + "")){
             String[] user_input_parts = input.split(" ");
             String cellName = user_input_parts[0];

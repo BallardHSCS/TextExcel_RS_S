@@ -39,7 +39,6 @@ public class FormulaCell extends Cell {
     }
 
     /**
-     *
      * @param checkString
      * @return returns cell contents, as a string.
      */
@@ -47,13 +46,13 @@ public class FormulaCell extends Cell {
     public String CellCheck(String checkString) {
         String[] input = checkString.split("");
         if ((checkString.toUpperCase().charAt(0) >= letterA) && (checkString.toUpperCase().charAt(0) <= letterZ)) {
-            int Row = (int) Double.parseDouble(input[1])-1;
+            int Row = (int) Double.parseDouble(input[1]) - 1;
             int Col = checkString.charAt(0) - (letterA);
-            checkString = sheet.getCell(Row ,Col);
+            checkString = sheet.getCell(Row, Col);
             if (checkString.contains("(")) {
                 operations(sheet.getCell(Row, Col));
             }
-            checkString = sheet.getCell(Row ,Col);
+            checkString = sheet.getCell(Row, Col);
             // this is where the program turns the reference into cell contents, and then calls it as a formula again, just in case its a formula.
 
 
@@ -75,22 +74,28 @@ public class FormulaCell extends Cell {
         int elementIndex = 0;
 /*ERROR*/
         String[] inPart = contents.split(" ");
-        if( inPart.length <= 3){
-           exitVal+= Double.parseDouble(CellCheck(inPart[1]));
-        }
-        String sideL = inPart[1];
-        sideL = CellCheck(sideL);
+        if (contents.contains("sum")) {
+            exitVal = Double.toString(sum(contents));
+        } else if (contents.contains("avg")) {
+            exitVal = Double.toString(average(contents));
+        } else {
+            if (inPart.length <= 3) {
+                exitVal += Double.parseDouble(CellCheck(inPart[1]));
+            }
+            String sideL = inPart[1];
+            sideL = CellCheck(sideL);
 
 
-        for (int i = 2; i < inPart.length - 1; i += opLength) {
-            inPart[i-1] = sideL;
-            String sideR = CellCheck(inPart[i + 1]);
+            for (int i = 2; i < inPart.length - 1; i += opLength) {
+                inPart[i - 1] = sideL;
+                String sideR = CellCheck(inPart[i + 1]);
 
 
-            exitVal = operator(inPart[i].charAt(elementIndex), Double.parseDouble(sideL), Double.parseDouble(sideR));
-            sideL = exitVal;
+                exitVal = operator(inPart[i].charAt(elementIndex), Double.parseDouble(sideL), Double.parseDouble(sideR));
+                sideL = exitVal;
 
 
+            }
         }
         return exitVal;
     }
@@ -159,7 +164,6 @@ public class FormulaCell extends Cell {
    * */
 
     /**
-     *
      * @param input
      * @return average of input, as a double.
      */
@@ -196,7 +200,6 @@ public class FormulaCell extends Cell {
         }*/
 
     /**
-     *
      * @param dubs as an array list
      * @return sum of the input, as a double.
      */
@@ -210,7 +213,6 @@ public class FormulaCell extends Cell {
     }
 
     /**
-     *
      * @param input as a string
      * @return sum of numbers, as a double
      */
@@ -243,9 +245,10 @@ public class FormulaCell extends Cell {
         double cellVal = 0;
 
         return cellVal;
-    }}
+    }
+}
 
-    //TODO Checkpoint 6
+//TODO Checkpoint 6
 
 
 
