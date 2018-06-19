@@ -183,8 +183,8 @@ public class FormulaCell extends Cell {
         letterTwo = Character.toUpperCase(letterTwo);
         int rowTwo = Integer.parseInt(secondCell.substring(1)) - 1;
         int colTwo = letterTwo - letterA;
-        for (int r = row; r < rowTwo; r++) {
-            for (int c = col; c < colTwo; c++) {
+        for (int r = row; r <= rowTwo; r++) {
+            for (int c = col; c <= colTwo; c++) {
                 dubs.add(Double.parseDouble(sheet.getCell(r, c)));
             }
         }
@@ -232,8 +232,8 @@ public class FormulaCell extends Cell {
         letterTwo = Character.toUpperCase(letterTwo);
         int rowTwo = Integer.parseInt(secondCell.substring(1)) - 1;
         int colTwo = letterTwo - letterA;
-        for (int r = row; r < rowTwo; r++) {
-            for (int c = col; c < colTwo; c++) {
+        for (int r = row; r <= rowTwo; r++) {
+            for (int c = col; c <= colTwo; c++) {
                 dubs.add(Double.parseDouble(sheet.getCell(r, c)));
             }
         }

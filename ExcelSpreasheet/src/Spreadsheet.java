@@ -73,11 +73,12 @@ public class Spreadsheet {
                 int rowTwo = Integer.parseInt(secondCell.substring(1))-1;
                 int colTwo = letterTwo - letterA;
 
-                for(int r = row; r < rowTwo; r ++){
-                    for(int c = col; c < colTwo; c ++){
+                for(int c = col; c <= colTwo + 1 ; c ++){
+                    for(int r = row; r <= rowTwo; r ++){
                         cellArray[row][col] = new Cell();
                     }
       /**/          }
+
 
             }
             else{
