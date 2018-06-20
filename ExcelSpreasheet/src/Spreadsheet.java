@@ -78,7 +78,7 @@ public class Spreadsheet {
 
                 for (int c = col; c <= colTwo + 1; c++) {
                     for (int r = row; r <= rowTwo; r++) {
-                        cellArray[row][col] = new Cell();
+                        cellArray[r][c] = new Cell();
                     }
       /**/
                 }
@@ -187,7 +187,7 @@ public class Spreadsheet {
         letterTwo = Character.toUpperCase(letterTwo);
         int rowTwo = Integer.parseInt(secondCell.substring(1)) - 1;
         int colTwo = letterTwo - letterA;
-        int size = (row - rowTwo) + (col - colTwo);
+        int size = Math.abs((row - rowTwo) + (col - colTwo)) + 1;
         double[] dubs = new double[size];
 
         for (int r = row; r <= rowTwo; r++) {
@@ -228,7 +228,11 @@ public class Spreadsheet {
     }
 
     public static void reverse(double[] a) {
-
+        for(int i = 0; i < a.length - 1;i++){
+            double temp = a[i];
+            a[i] =  a[a.length-(i+1)];
+            a[a.length-(i+1)] = temp;
+        }
 
     }
 

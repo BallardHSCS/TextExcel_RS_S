@@ -41,7 +41,11 @@ public class TextExcel {
             } else if (user_input.contains("avg")) {
                 System.out.println(formula.average(user_input));
 
-            }else if(user_input.contains("help")){
+            }
+            else if(user_input.contains("sort")){
+                sheet.sorter(user_input);
+            }
+            else if(user_input.contains("help")){
                 System.out.println(help());
             }
             else {
