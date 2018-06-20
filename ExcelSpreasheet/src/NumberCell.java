@@ -22,4 +22,8 @@ public class NumberCell extends Cell{
         return numReturn ;
     }
 
+    @Override
+    public String printToSpreadsheet() {
+     return Double.toString(doubleCell(printToSpreadsheet()));
+    }
 }

@@ -172,7 +172,7 @@ public class Spreadsheet {
 
 
     public void sorter(String input) {
-        int size = 0;
+        int tertiaryInc = 0;
         int inc = 0;
         String[] parseForCells = input.split(" ");
         String firstCell = parseForCells[1];
@@ -187,24 +187,35 @@ public class Spreadsheet {
         letterTwo = Character.toUpperCase(letterTwo);
         int rowTwo = Integer.parseInt(secondCell.substring(1)) - 1;
         int colTwo = letterTwo - letterA;
+        int size = (row - rowTwo) + (col - colTwo);
+        double[] dubs = new double[size];
 
         for (int r = row; r <= rowTwo; r++) {
             for (int c = col; c <= colTwo; c++) {
-               size++;
-
-            }
-        }
-
-        double[] dubs = new double [size];
-
-        for(int r2 = row; r2 <= rowTwo; r2++){
-            for(int c2 = col; c2 <= colTwo; c2++){
-                dubs[inc] = Double.parseDouble(cellArray[r2][c2].printToSpreadsheet());
+                dubs[inc] = Double.parseDouble(cellArray[r][c].printToSpreadsheet());
                 inc++;
             }
+
+        }
+        sortA(dubs);
+        if (input.contains("sortD")) {
+            reverse(dubs);
+            for (int r2 = row; r2 <= rowTwo; r2++) {
+                for (int c2 = col; c2 <= colTwo; c2++) {
+                    cellArray[r2][c2] = new NumberCell(Double.toString(dubs[tertiaryInc]));
+                    tertiaryInc++;
+                }
+            }
+
+        } else {
+            for (int r2 = row; r2 <= rowTwo; r2++) {
+                for (int c2 = col; c2 <= colTwo; c2++) {
+                    cellArray[r2][c2] = new NumberCell(Double.toString(dubs[tertiaryInc]));
+                    tertiaryInc++;
+                }
+            }
         }
 
-        sortA(dubs);
 
     }
 
@@ -215,6 +226,12 @@ public class Spreadsheet {
         }
 
     }
+
+    public static void reverse(double[] a) {
+
+
+    }
+
     /**
      * @param a
      * @param from
