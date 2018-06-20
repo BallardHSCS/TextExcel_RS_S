@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class TextExcel {
     private static final int letterA = 'A';
     private static char printerChar = '"';
+
     public static void main(String[] args) {
         Spreadsheet sheet = new Spreadsheet();
         FormulaCell formula = new FormulaCell("", sheet);
@@ -23,7 +24,8 @@ public class TextExcel {
             if (user_input.equalsIgnoreCase("exit")) {
                 done = true;
             } else if (user_input.equalsIgnoreCase("print")) {
-/*ERROR*/                System.out.println(sheet);
+/*ERROR*/
+                System.out.println(sheet);
             } else if (user_input.contains("clear")) {
                 sheet.clear(user_input);
             } else if (user_input.contains(" = ")) {
@@ -41,14 +43,11 @@ public class TextExcel {
             } else if (user_input.contains("avg")) {
                 System.out.println(formula.average(user_input));
 
-            }
-            else if(user_input.contains("sort")){
+            } else if (user_input.contains("sort")) {
                 sheet.sorter(user_input);
-            }
-            else if(user_input.contains("help")){
+            } else if (user_input.contains("help")) {
                 System.out.println(help());
-            }
-            else {
+            } else {
                 char letter = user_input.toUpperCase().charAt(0);
                 int col = letter - letterA;
                 int row = Integer.parseInt(user_input.substring(1));
@@ -61,14 +60,14 @@ public class TextExcel {
 
     /**
      * Gets run, if the user types in "help"
+     *
      * @return Help in the form of various different strings.
      */
     private static String help() {
         String helper = "If you seek to exit the program, type 'exit'\n" +
                 "For adding to the Spreadsheet, type commands in the format of 'A3 = Fool' in order to put data on the spreadsheet \n" +
                 "Particularly for strings make sure your string contains " + printerChar + printerChar + " in a format such as A3 = " + printerChar + " Fool" + printerChar + "\n" +
-                "To clear all cells on the Sheet, type clear, otherwise, type CellName(A3) = clear \n" + "For formulas, type your formula in the correct syntax of 'A1 = ( enter formula )' \n"
-                ;
+                "To clear all cells on the Sheet, type clear, otherwise, type CellName(A3) = clear \n" + "For formulas, type your formula in the correct syntax of 'A1 = ( enter formula )' \n";
         return helper;
     }
     /*public String CellCheck(String checkString) {

@@ -49,20 +49,18 @@ public class Cell {
     }
 
     /**
-     *
      * @return returns contents, in the form of a string.
      */
-    public String returnToSpreadsheet(){
+    public String returnToSpreadsheet() {
 
         return contents;
     }
 
     /**
-     *
      * @return contents in th form of a string
      * this is a special method for the FormulaCell class, to get contents, for things like cell references.
      */
-    public String GetContents(){
+    public String GetContents() {
         return this.contents;
     }
 
@@ -74,7 +72,10 @@ public class Cell {
      * @return returns a new formatted cell
      */
 
-    //TODO: Make it so that if @param input.length() > 12, the cell will not be accepted and a message will be printed to the user
+    /**
+     * @param input string input via contents
+     * @return properly formatted text to feed to cells via printToSpreadsheet
+     */
     public String formatCell(String input) {
 
         String formatted = input;
@@ -82,7 +83,7 @@ public class Cell {
         int formatdif = format - input.length();
         if ((formatdif < 0)) {
             System.out.println(formatdif);
-            formatted = formatted.substring(0,(formatted.length() - Math.abs(formatdif)-1));
+            formatted = formatted.substring(0, (formatted.length() - Math.abs(formatdif) - 1));
             formatted += ">";
 
         } else if (input.length() < format) {
@@ -108,7 +109,6 @@ public class Cell {
 
         return formatted;
     }
-
 
 
 }
