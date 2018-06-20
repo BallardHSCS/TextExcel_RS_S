@@ -47,7 +47,7 @@ public class FormulaCell extends Cell {
         String[] input = checkString.split("");
         if ((checkString.toUpperCase().charAt(0) >= letterA) && (checkString.toUpperCase().charAt(0) <= letterZ)) {
             int Row = (int) Double.parseDouble(input[1]) - 1;
-            int Col = checkString.charAt(0) - (letterA);
+            int Col = checkString.toUpperCase().charAt(0) - (letterA);
             checkString = sheet.getCell(Row, Col);
             if (checkString.contains("(")) {
                 operations(sheet.getCell(Row, Col));
@@ -57,6 +57,11 @@ public class FormulaCell extends Cell {
 
 
         }
+
+
+                checkString = checkString.replace('>',' ');
+
+
         return checkString;
     }
 
@@ -67,6 +72,8 @@ public class FormulaCell extends Cell {
 
     public String operations(String contents) {
         this.contents = contents;
+
+
         String returnable = "";
         String exitVal = "";
 
@@ -80,7 +87,7 @@ public class FormulaCell extends Cell {
             exitVal = Double.toString(average(contents));
         } else {
             if (inPart.length <= 3) {
-                exitVal += Double.parseDouble(CellCheck(inPart[1]));
+                exitVal += (Double.parseDouble(CellCheck(inPart[1])));
             }
             String sideL = inPart[1];
             sideL = CellCheck(sideL);
