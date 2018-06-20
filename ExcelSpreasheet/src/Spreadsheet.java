@@ -78,7 +78,7 @@ public class Spreadsheet {
 
                 for (int c = col; c <= colTwo + 1; c++) {
                     for (int r = row; r <= rowTwo; r++) {
-                        cellArray[row][col] = new Cell();
+                        cellArray[r][c] = new Cell();
                     }
       /**/
                 }
