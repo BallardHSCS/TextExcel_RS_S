@@ -57,7 +57,8 @@ public class Spreadsheet {
     }
 
     /**
-     * @param type clears the sheet.
+     * @param type clears the sheet
+     *             Can clear ranges references as well as the entirety of the test
      */
 
     public void clear(String type) {
@@ -166,11 +167,23 @@ public class Spreadsheet {
         }
     }
 
+    /**
+     * @param r r as in row
+     * @param c c as in col
+     *          <p>
+     *          returns specific cells as printToSpreadsheet calls
+     * @return
+     */
     public String getCell(int r, int c) {
         return cellArray[r][c].printToSpreadsheet();
     }
 
-
+    /**
+     * @param input String input, method splits input and sorts cell references from least to highest or highest to least
+     *              based on user input.
+     *              <p>
+     *              Uses sortA and Reverse helper methods
+     */
     public void sorter(String input) {
         int tertiaryInc = 0;
         int inc = 0;
@@ -228,10 +241,10 @@ public class Spreadsheet {
     }
 
     public static void reverse(double[] a) {
-        for(int i = 0; i < a.length - 1;i++){
+        for (int i = 0; i < a.length - 1; i++) {
             double temp = a[i];
-            a[i] =  a[a.length-(i+1)];
-            a[a.length-(i+1)] = temp;
+            a[i] = a[a.length - (i + 1)];
+            a[a.length - (i + 1)] = temp;
         }
 
     }
@@ -251,16 +264,13 @@ public class Spreadsheet {
         return minPos;
     }
 
-    public static int linearSearch(double[] a, int x) {
-        for (int i = 0; i < a.length; i++) {
-            if (a[i] == x) {
-                return i;
-            }
-        }
-        return -1;
 
-    }
-
+    /**
+     * @param a Array of fouble values given by sorter and sortA
+     *          indexes to swap
+     * @param i indexes to swap
+     * @param j
+     */
     private static void swap(double a[], int i, int j) {
         double temp = a[i];
         a[i] = a[j];

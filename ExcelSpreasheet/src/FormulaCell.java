@@ -241,6 +241,12 @@ public class FormulaCell extends Cell {
         return sum(dubs);
     }
 
+    /**
+     * UNUSED
+     *
+     * @param input String input
+     * @return number cell value
+     */
     public double getNumCell(String input) {
         double cellVal = 0;
 
