@@ -63,7 +63,6 @@ public class Spreadsheet {
 
     public void clear(String type) {
         if (type.contains(" ")) {
-/**/
             if (type.contains("-")) {
                 String[] range_parts = type.split(" ");
                 String firstCell = range_parts[1];
@@ -77,11 +76,11 @@ public class Spreadsheet {
                 int rowTwo = Integer.parseInt(secondCell.substring(1)) - 1;
                 int colTwo = letterTwo - letterA;
 
-                for (int c = col; c <= colTwo + 1; c++) {
-                    for (int r = row; r <= rowTwo; r++) {
+                for (int r = row; r <= rowTwo; r++) {
+                    for (int c = col; c <= colTwo; c++) {
                         cellArray[r][c] = new Cell();
                     }
-      /**/
+
                 }
 
 
@@ -241,13 +240,14 @@ public class Spreadsheet {
     }
 
     public static void reverse(double[] a) {
-        for (int i = 0; i < a.length - 1; i++) {
+        for (int i = 0; i < a.length / 2; i++) {
             double temp = a[i];
-            a[i] = a[a.length - (i + 1)];
-            a[a.length - (i + 1)] = temp;
+            a[i] = a[a.length - 1 - i];
+            a[a.length - 1 - i] = temp;
         }
-
     }
+
+
 
     /**
      * @param a

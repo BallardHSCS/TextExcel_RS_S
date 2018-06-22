@@ -66,7 +66,7 @@ public class TextExcel {
     private static String help() {
         String helper = "If you seek to exit the program, type 'exit'\n" +
                 "For adding to the Spreadsheet, type commands in the format of 'A3 = Fool' in order to put data on the spreadsheet \n" +
-                "Particularly for strings make sure your string contains " + printerChar + printerChar + " in a format such as A3 = " + printerChar + " Fool" + printerChar + "\n" +
+                "Particularly for strings, make sure your string contains " + printerChar + printerChar + " in a format such as A3 = " + printerChar + " Fool" + printerChar + "\n" +
                 "To clear all cells on the Sheet, type clear, otherwise, type CellName(A3) = clear \n" + "For formulas, type your formula in the correct syntax of 'A1 = ( enter formula )' \n";
         return helper;
     }
