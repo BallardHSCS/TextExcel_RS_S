@@ -17,7 +17,7 @@ public class TextExcel {
         System.out.println(sheet);
 
         do {
-            System.out.println("Please enter a command, full documentation will arrive later near completion");
+            System.out.println("Please enter a command. To find out what commands you can enter, please type in 'help'.");
 
             String user_input = command_input.nextLine();
             //Titled 'quit' within the specification

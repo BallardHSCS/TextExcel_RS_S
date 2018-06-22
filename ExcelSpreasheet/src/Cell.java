@@ -82,7 +82,7 @@ public class Cell {
         int format = EMPTY_CELL.length();
         int formatdif = format - input.length();
         if ((formatdif < 0)) {
-            System.out.println(formatdif);
+           // System.out.println(formatdif);
             formatted = formatted.substring(0, (formatted.length() - Math.abs(formatdif) - 1));
             formatted += ">";
 
